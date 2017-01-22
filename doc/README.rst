@@ -11,7 +11,7 @@ patch. It is intended to provide the complete life cycle of a software
 development for a third party or customer. See `Clame in action
 <#clame-in-action>`__ to get a better idea of clame capabilities. Full clame
 documentation is hosted in `read the docs
-<https://readthedocs.org/projects/clame>`__ website. 
+<http://clame.readthedocs.io/en/latest/>`__ website. 
 
 Clame inspiration comes from `Sun Packaging Tool
 <https://docs.oracle.com/cd/E19683-01/806-7008/6jftmsc0k/index.html>`__ and lot
