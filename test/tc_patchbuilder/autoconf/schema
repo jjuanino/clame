@@ -1,0 +1,103 @@
+# vim: set ft=conf:
+# $id$
+
+PERMS="0644"
+OWNERS="root:daemon"
+
+PERMS_DIR="0700"
+OWNERS_DIR="nobody:nogroup"
+
+EXEC_PERMS = "0750"
+EXEC_OWNERS = "root:root"
+
+dirdefaults $(PERMS_DIR) $(OWNERS_DIR)
+notdirdefaults $(PERMS) $(OWNERS)
+
+# directorios
+d bin
+d info
+d man
+d man/man1
+d share
+d share/autoconf-2.68
+d share/autoconf-2.68/Autom4te
+d share/autoconf-2.68/autoconf
+d share/autoconf-2.68/autoscan
+d share/autoconf-2.68/autotest
+d share/autoconf-2.68/m4sugar
+
+#
+# Files
+
+f! bin/autoconf-2.68
+f! bin/autoheader-2.68
+f! bin/autom4te-2.68
+f! bin/autoreconf-2.68
+f! bin/autoscan-2.68
+f! bin/autoupdate-2.68
+f! bin/ifnames-2.68
+
+# ln -s bin/autoconf-2.68 bin/autoconf
+s bin/autoconf-symlink=bin/autoconf-2.68
+
+# ln bin/autoconf-2.68 bin/autoconf
+h bin/autoconf-hardlink=bin/autoconf-2.68
+
+
+f info/autoconf-2.68.info
+f! man/man1/autoconf-2.68.1.gz
+f! man/man1/autoheader-2.68.1.gz
+f! man/man1/autom4te-2.68.1.gz
+f! man/man1/autoreconf-2.68.1.gz
+f! man/man1/autoscan-2.68.1.gz
+f! man/man1/autoupdate-2.68.1.gz
+f! man/man1/ifnames-2.68.1.gz
+f! man/man1/config.guess-2.68.1.gz
+f! man/man1/config.sub-2.68.1.gz
+f share/autoconf-2.68/Autom4te/C4che.pm
+f share/autoconf-2.68/Autom4te/ChannelDefs.pm
+f share/autoconf-2.68/Autom4te/Channels.pm
+f share/autoconf-2.68/Autom4te/Configure_ac.pm
+f share/autoconf-2.68/Autom4te/FileUtils.pm
+f share/autoconf-2.68/Autom4te/General.pm
+f share/autoconf-2.68/Autom4te/Request.pm
+f share/autoconf-2.68/Autom4te/Struct.pm
+f share/autoconf-2.68/Autom4te/XFile.pm
+f share/autoconf-2.68/INSTALL
+f share/autoconf-2.68/autoconf/autoconf.m4
+f share/autoconf-2.68/autoconf/autoconf.m4f
+f share/autoconf-2.68/autoconf/autoheader.m4
+f share/autoconf-2.68/autoconf/autoscan.m4
+f share/autoconf-2.68/autoconf/autotest.m4
+f share/autoconf-2.68/autoconf/autoupdate.m4
+f share/autoconf-2.68/autoconf/c.m4
+f share/autoconf-2.68/autoconf/erlang.m4
+f share/autoconf-2.68/autoconf/fortran.m4
+f share/autoconf-2.68/autoconf/functions.m4
+f share/autoconf-2.68/autoconf/general.m4
+f share/autoconf-2.68/autoconf/headers.m4
+f share/autoconf-2.68/autoconf/lang.m4
+f share/autoconf-2.68/autoconf/libs.m4
+f share/autoconf-2.68/autoconf/oldnames.m4
+f share/autoconf-2.68/autoconf/programs.m4
+f share/autoconf-2.68/autoconf/specific.m4
+f share/autoconf-2.68/autoconf/status.m4
+f share/autoconf-2.68/autoconf/types.m4
+f share/autoconf-2.68/autom4te.cfg
+f share/autoconf-2.68/autoscan/autoscan.list
+f share/autoconf-2.68/autotest/autotest.m4
+f share/autoconf-2.68/autotest/autotest.m4f
+f share/autoconf-2.68/autotest/general.m4
+f share/autoconf-2.68/autotest/specific.m4
+f share/autoconf-2.68/config.guess
+f share/autoconf-2.68/config.sub
+f share/autoconf-2.68/elisp-comp
+f share/autoconf-2.68/install-sh
+f share/autoconf-2.68/m4sugar/foreach.m4
+f share/autoconf-2.68/m4sugar/m4sh.m4
+f share/autoconf-2.68/m4sugar/m4sh.m4f
+f share/autoconf-2.68/m4sugar/m4sugar.m4
+f share/autoconf-2.68/m4sugar/m4sugar.m4f
+f share/autoconf-2.68/m4sugar/version.m4
+f share/autoconf-2.68/mdate-sh
+f share/autoconf-2.68/missing

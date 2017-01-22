@@ -1,0 +1,6 @@
+# vim: set ft=conf:
+# $Id$
+P PASSWD_VAR1 Request for a password
+P PASSWD_VAR2 Request for a second password
+N NORMAL_VAR1 Request for a normal variable
+B BOOL_VAR1 Request for a boolean variable

@@ -1,0 +1,34 @@
+# vim: set ft=ruby:
+
+require 'test/unit'
+
+include Test::Unit::Assertions
+
+env = {}
+
+[
+    %w(PATCH_NAME foo),
+    ['DESCRIPTION', 'An example for test'],
+    %w(VERSION 4.0.3),
+    %w(NEED_SUPERUSER YES),
+    %w(INTERPRETER /usr/bin/env),
+    %w(INTERPRETER_FLAGS ruby),
+    %w(MYVAR MYVALUE),
+    %w(PATH /bin:/usr/bin:/usr/local/bin),
+    %w(VAR1 VALUE1),
+    %w(VAR2 VALUE2),
+    %w(VAR3 VALUE3),
+].each do |name, value|
+  env[name] = value
+end
+
+env.all? do |k,v|
+  assert(ENV[k] == env[k], "#{ENV[k]}, #{env[k]}")
+  assert(env[k] == v, "#{env[v]}, #{k}")
+end
+
+ENV.all? do |k,v|
+  next if k == 'PREFIX'
+  assert(ENV[k] == env[k], "#{ENV[k]}, #{env[k]}")
+  assert(ENV[k] == v, "#{env[v]}, #{k}")
+end

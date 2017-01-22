@@ -1,0 +1,7 @@
+# vim: set ft=conf:
+# $Id$
+PATCH_NAME="bison"
+DESCRIPTION="An example for test"
+PREFIX="/usr/local"
+VERSION="2.4.3"
+BASECLAME="BASEDIR"

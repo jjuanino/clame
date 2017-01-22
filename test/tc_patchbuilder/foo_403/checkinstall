@@ -1,0 +1,2 @@
+register_vars = ARGV[0]
+exec(register_vars, 'VAR1', 'VALUE1', 'VAR2', 'VALUE2', 'VAR3', 'VALUE3')

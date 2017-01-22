@@ -1,0 +1,5 @@
+# vim: set ft=conf:
+PATCH_NAME="bar"
+DESCRIPTION="An example for test"
+PREFIX="/usr/local"
+VERSION="9.4"

@@ -1,0 +1,6 @@
+# vim: set ft=conf:
+# $Id$
+PATCH_NAME="gamma"
+DESCRIPTION="An example for test"
+PREFIX="/usr/local"
+VERSION="2.3"

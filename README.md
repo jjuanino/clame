@@ -1,2 +1,0 @@
-# clame
-Patches manager

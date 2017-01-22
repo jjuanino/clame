@@ -1,0 +1,5 @@
+# vim: set ft=conf:
+PATCH_NAME="tee"
+DESCRIPTION="An example for test"
+PREFIX="/usr/local"
+VERSION="7.1"

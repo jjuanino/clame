@@ -1,0 +1,7 @@
+# See PatchScript class
+SCRIPT_NAME
+checkinstall
+preinstall
+postinstall
+preremove
+postremove

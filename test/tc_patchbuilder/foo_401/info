@@ -1,0 +1,6 @@
+# vim: set ft=conf:
+# $Id$
+PATCH_NAME="foo"
+DESCRIPTION="An example for test"
+PREFIX="/usr/local"
+VERSION="4.0.1"

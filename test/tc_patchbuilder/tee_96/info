@@ -1,0 +1,6 @@
+# vim: set ft=conf:
+# $Id$
+PATCH_NAME="tee"
+DESCRIPTION="An example for test"
+VERSION="9.6"
+BASECLAME="."

@@ -1,0 +1,4 @@
+# imaginary depends and conflicts
+R autoconf <= 7.9
+R yacc != 9.1.a
+C foo == 8.4.B

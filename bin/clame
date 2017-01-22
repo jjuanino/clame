@@ -1,0 +1,87 @@
+#!/usr/bin/env ruby
+# encoding: ISO-8859-15
+# vim: set ft=ruby sts=2 sw=2 ai et:
+#
+#
+# Copyright (c) 2016 José García Juanino <jjuanino@gmail.com>
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 1. Redistributions of source code must retain the above copyright notice,
+#    this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright notice,
+#    this list of conditions and the following disclaimer in the documentation
+#    and/or other materials provided with the distribution.
+# 3. The name of the author may not be used to endorse or promote products
+#    derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+# EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+# OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+# ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+require 'clame'
+
+begin
+  begin
+
+    Clame::Factory.bootstrap_conf
+
+    # Creamos los directorios necesarios
+    [:log_file, :database_path].each do |conf|
+      if !Dir.exist?(dir = File.dirname(Clame::CONF_SETTINGS[conf]))
+        FileUtils.mkdir_p(dir)
+        File.chmod(0700, dir)
+        puts "#{dir} created"
+      end
+    end
+
+    if !Dir.exist?(backup_dir = Clame::CONF_SETTINGS[:backup_dir_install])
+      FileUtils.mkdir_p(backup_dir)
+      File.chmod(0700, backup_dir)
+      puts "#{backup_dir} created"
+    end
+
+    # Si CONF_SETTINGS[:deploy_schema_dir] es nil, tiramos un error
+    unless Clame::CONF_SETTINGS[:deploy_schema_dir]
+      raise Clame::InvalidConfSetting.new('deploy_schema_dir')
+    end
+
+    Clame::Factory.bootstrap_logger
+    Clame::Factory.bootstrap_database
+
+  rescue
+    # Un error en este bloque es fatal. Salimos inmediatamente
+    if $!.respond_to?(:coderr)
+      $stderr.puts $!
+      exit($!.coderr % 255)
+    else
+      $stderr.puts $!.inspect, $@
+    end
+
+    exit (false)
+  end
+
+  Clame::Fs.compute_free_space_per_fs
+  Clame.logger.debug "Conf settings: #{Clame::CONF_SETTINGS}"
+  Clame.logger.info "Executing #{$0} #{ARGV.join(' ')}"
+  Clame::CmdLine.new(ARGV).execute
+  Clame.logger.info "Command succesfully completed"
+rescue
+  Clame.logger.error $!
+  if $!.respond_to?(:coderr)
+    $stderr.puts $!
+    exit($!.coderr % 255)
+  end
+  # Uncontrolled exception. Internal error
+  $stderr.puts $!.inspect, $@
+  exit (false)
+end

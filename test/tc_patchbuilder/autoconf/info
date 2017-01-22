@@ -1,0 +1,10 @@
+# vim: set ft=conf:
+# $Id$
+PATCH_NAME="autoconf"
+DESCRIPTION="An example for test"
+VERSION="2.a.0"
+NEED_SUPERUSER = "YES"
+INTERPRETER = "/bin/sh"
+INTERPRETER_FLAGS = "-x"
+PREFIX="/usr"
+BASECLAME="BASEDIR"

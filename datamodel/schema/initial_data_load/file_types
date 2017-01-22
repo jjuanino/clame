@@ -1,0 +1,6 @@
+# See FileTypes class
+FILE_TYPE;DESCRIPTION
+d;Directory
+f;Regular file
+s;Symbolic link
+p;Pipe

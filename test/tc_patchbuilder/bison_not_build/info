@@ -1,0 +1,5 @@
+# vim: set ft=conf:
+# $Id$
+PATCH_NAME="bison"
+DESCRIPTION="An example for test"
+VERSION="2.4.3"

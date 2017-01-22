@@ -1,0 +1,11 @@
+# vim: set ft=conf:
+# $Id$
+
+# directorios
+d bin
+
+f 0755 bin/foo
+# ln -s bison bin/bison-symlink
+s bin/foo-symlink=foo
+# ln $(PREFIX)/bin/bison bin/bison-hardlink
+h bin/foo-hardlink=bin/foo

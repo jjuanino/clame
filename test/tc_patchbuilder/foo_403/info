@@ -1,0 +1,10 @@
+# vim: set ft=conf:
+# $Id$
+PATCH_NAME="foo"
+DESCRIPTION="An example for test"
+VERSION="4.0.3"
+NEED_SUPERUSER = "YES"
+INTERPRETER = "/usr/bin/env"
+INTERPRETER_FLAGS="ruby"
+PREFIX="/usr"
+PATH="/bin:/usr/bin:/usr/local/bin"

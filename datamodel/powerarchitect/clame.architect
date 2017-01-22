@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<architect-project version="1.0" appversion="1.0.7">
+ <project-name>clame</project-name>
+ <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
+ <project-data-sources>
+  <data-source id="DS0">
+   <property key="Logical" value="PlayPen Database" />
+  </data-source>
+ </project-data-sources>
+ <source-databases>
+ </source-databases>
+ <target-database id="ppdb" dbcs-ref="DS0">
+  <table id="TAB1" populated="true" UUID="b9b6e5fc-d3e5-45e0-8170-01b97534b18c" name="model_version" objectType="TABLE" physicalName="model_version" >
+   <remarks></remarks>
+   <folder id="FOLTAB11" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL2" populated="true" UUID="8100d701-9f48-44b1-88b6-7e8cba8a2593" autoIncrement="false" autoIncrementSequenceName="model_version_version_seq" defaultValue="" name="version" nullable="0" physicalName="version" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB13" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB12" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB14" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX3" populated="true" UUID="61f6ae7c-2d31-47f2-af28-3b2e7323a3e1" clustered="false" name="model_version_pk" physicalName="model_version_pk" primaryKeyIndex="true" unique="false" >
+    </index>
+   </folder>
+  </table>
+  <table id="TAB4" populated="true" UUID="f161ee69-7599-4e42-9288-78d334e04d99" name="info_vars" objectType="TABLE" physicalName="info_vars" >
+   <remarks></remarks>
+   <folder id="FOLTAB41" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL5" populated="true" UUID="3dadf126-42c1-44df-a668-f160f0d2f24f" autoIncrement="false" autoIncrementSequenceName="info_vars_info_var_id_seq" defaultValue="" name="info_var_id" nullable="0" physicalName="info_var_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL6" populated="true" UUID="438efa8c-2a7c-4b2f-a421-becefb9a1393" autoIncrement="false" autoIncrementSequenceName="info_vars_patch_version_id_seq" defaultValue="" name="patch_version_id" nullable="0" physicalName="patch_version_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL7" populated="true" UUID="41151702-79d7-450e-ab75-ec8ff6114e4a" autoIncrement="false" autoIncrementSequenceName="info_vars_var_name_seq" defaultValue="" name="var_name" nullable="0" physicalName="var_name" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL8" populated="true" UUID="f316c660-9fb0-485b-9a5c-5e2dc2d22b23" autoIncrement="false" autoIncrementSequenceName="info_vars_var_value_seq" defaultValue="" name="var_value" nullable="0" physicalName="var_value" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL9" populated="true" UUID="a6bc28d6-c931-4552-9b34-60504061cf43" autoIncrement="false" autoIncrementSequenceName="info_vars_time_stamp_seq" defaultValue="" name="time_stamp" nullable="0" physicalName="time_stamp" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB43" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB42" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB44" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX10" populated="true" UUID="c5af1d9e-2dbe-4aae-baf6-f5cf70cc5360" clustered="false" name="info_vars_pk" physicalName="info_vars_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC11" populated="true" UUID="b4f61125-5f3a-48ee-84fe-60266dd680a0" ascendingOrDescending="UNSPECIFIED" column-ref="COL5" name="info_var_id" physicalName="info_var_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB12" populated="true" UUID="6ecc0f4b-87ac-4109-8054-77a604f1f537" name="patch_status" objectType="TABLE" physicalName="patch_status" >
+   <remarks></remarks>
+   <folder id="FOLTAB121" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL13" populated="true" UUID="7eefcca3-dd89-4fd5-9fa2-56077fc76520" autoIncrement="false" autoIncrementSequenceName="patch_status_patch_status_id_seq" defaultValue="" name="patch_status_id" nullable="0" physicalName="patch_status_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL14" populated="true" UUID="9be54177-7de5-4396-bde9-99e5aa1cbde6" autoIncrement="false" autoIncrementSequenceName="patch_status_description_seq" defaultValue="" name="description" nullable="0" physicalName="description" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL15" populated="true" UUID="ab2df6c0-c413-4ebd-a044-87b5f013ec04" autoIncrement="false" autoIncrementSequenceName="patch_status_patch_status_seq" defaultValue="" name="patch_status" nullable="0" physicalName="patch_status" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL16" populated="true" UUID="fbccfeb5-4b28-463b-9bfc-bc952e065379" autoIncrement="false" autoIncrementSequenceName="patch_status_time_stamp_seq" defaultValue="" name="time_stamp" nullable="1" physicalName="time_stamp" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB123" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB122" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB124" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX17" populated="true" UUID="966ff686-9ed3-4546-bae4-a1051819bbc8" clustered="false" name="patch_status_pk" physicalName="patch_status_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC18" populated="true" UUID="0528c405-fdd0-474d-8531-562e22457dc7" ascendingOrDescending="UNSPECIFIED" column-ref="COL13" name="patch_status_id" physicalName="patch_status_id" />
+    </index>
+    <index id="IDX19" populated="true" UUID="a50def87-1d02-4a29-a954-7cb85135c7a9" clustered="false" name="patch_status_uk" physicalName="patch_status_uk" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC20" populated="true" UUID="8752ab2f-fbd8-49dd-87f1-4fd339293b0d" ascendingOrDescending="UNSPECIFIED" column-ref="COL15" name="patch_status" physicalName="patch_status" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB21" populated="true" UUID="a0f833c4-d1b7-4b50-b64c-a80f12146c5a" name="patches" objectType="TABLE" physicalName="patches" >
+   <remarks></remarks>
+   <folder id="FOLTAB211" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL22" populated="true" UUID="cef9001a-968a-4fbd-b176-03355427fe5e" autoIncrement="false" autoIncrementSequenceName="patches_patch_id_seq" defaultValue="" name="patch_id" nullable="0" physicalName="patch_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL23" populated="true" UUID="b8c7e5a9-7444-46f4-83c0-061b137859e9" autoIncrement="false" autoIncrementSequenceName="patches_patch_name_seq" defaultValue="" name="patch_name" nullable="0" physicalName="patch_name" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL24" populated="true" UUID="8d1f4fe5-f2c6-4ddc-82ef-6e16cc42b5e0" autoIncrement="false" autoIncrementSequenceName="patches_time_stamp_seq" defaultValue="" name="time_stamp" nullable="0" physicalName="time_stamp" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB213" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB212" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB214" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX25" populated="true" UUID="0a466d1f-bc5e-4484-b208-5837f0ccf53e" clustered="false" name="patches_pk" physicalName="patches_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC26" populated="true" UUID="099e24f4-0156-4b1c-ab83-5921793f204d" ascendingOrDescending="UNSPECIFIED" column-ref="COL22" name="patch_id" physicalName="patch_id" />
+    </index>
+    <index id="IDX27" populated="true" UUID="2d79e707-f6d0-4a24-ad99-70a763df3418" clustered="false" name="patches_uk" physicalName="patches_uk" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC28" populated="true" UUID="ea9c136b-838e-4ef3-b108-9b5c01d0ff0a" ascendingOrDescending="UNSPECIFIED" column-ref="COL23" name="patch_name" physicalName="patch_name" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB29" populated="true" UUID="cd6ccb27-d75a-4c5f-bb32-b78c69bb25c7" name="checkinstall_vars" objectType="TABLE" physicalName="checkinstall_vars" >
+   <remarks></remarks>
+   <folder id="FOLTAB291" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL30" populated="true" UUID="eb666a84-cb24-4de5-91b1-e6b2818f47bd" autoIncrement="false" autoIncrementSequenceName="checkinstall_vars_checkinstall_var_id_seq" defaultValue="" name="checkinstall_var_id" nullable="0" physicalName="checkinstall_var_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL31" populated="true" UUID="368b9380-9b40-4e3d-9a2d-e2c973fe77f7" autoIncrement="false" autoIncrementSequenceName="checkinstall_vars_patch_version_id_seq" defaultValue="" name="patch_version_id" nullable="0" physicalName="patch_version_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL32" populated="true" UUID="74bf531a-717f-4199-94fb-a0391f8d1c6c" autoIncrement="false" autoIncrementSequenceName="checkinstall_vars_var_name_seq" defaultValue="" name="var_name" nullable="0" physicalName="var_name" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL33" populated="true" UUID="81664442-311b-4e5e-a669-11d84113d6b2" autoIncrement="false" autoIncrementSequenceName="checkinstall_vars_var_value_seq" defaultValue="" name="var_value" nullable="0" physicalName="var_value" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL34" populated="true" UUID="58d71728-c6b4-4e46-a052-3079d3694ca2" autoIncrement="false" autoIncrementSequenceName="checkinstall_vars_time_stamp_seq" defaultValue="" name="time_stamp" nullable="0" physicalName="time_stamp" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB293" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB292" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB294" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX35" populated="true" UUID="740b87d8-fa74-432c-8074-9007d27cd181" clustered="false" name="checkinstall_vars_pk" physicalName="checkinstall_vars_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC36" populated="true" UUID="3eca4e30-9c6d-46e5-9e1c-e14113ae23a3" ascendingOrDescending="UNSPECIFIED" column-ref="COL30" name="checkinstall_var_id" physicalName="checkinstall_var_id" />
+    </index>
+    <index id="IDX37" populated="true" UUID="1d2abcf0-25bf-4aef-8729-c75c34e85c28" clustered="false" name="checkinstall_vars_uk" physicalName="checkinstall_vars_uk" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC38" populated="true" UUID="df20f425-02e1-4590-a2c8-cb605c480708" ascendingOrDescending="UNSPECIFIED" column-ref="COL32" name="var_name" physicalName="var_name" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB39" populated="true" UUID="9281fdfd-8a83-426c-881d-558a74e6a3f1" name="script_types" objectType="TABLE" physicalName="script_types" >
+   <remarks></remarks>
+   <folder id="FOLTAB391" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL40" populated="true" UUID="97d90d9b-46eb-4e84-ab0c-b6346cfbf496" autoIncrement="false" autoIncrementSequenceName="script_types_script_type_id_seq" defaultValue="" name="script_type_id" nullable="0" physicalName="script_type_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL41" populated="true" UUID="b6f6ca70-6938-43fe-a3b5-0469bd4fec9e" autoIncrement="false" autoIncrementSequenceName="script_types_script_name_seq" defaultValue="" name="script_name" nullable="0" physicalName="script_name" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL42" populated="true" UUID="6b66b610-3d93-4952-9fec-89cc639720ce" autoIncrement="false" autoIncrementSequenceName="script_types_time_stamp_seq" defaultValue="" name="time_stamp" nullable="0" physicalName="time_stamp" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB393" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB392" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB394" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX43" populated="true" UUID="858b99ff-2d94-4b27-b369-f6ccd7b34e0c" clustered="false" name="script_types_pk" physicalName="script_types_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC44" populated="true" UUID="7e9fa884-a88c-4fb9-be9e-867619afb797" ascendingOrDescending="UNSPECIFIED" column-ref="COL40" name="script_type_id" physicalName="script_type_id" />
+    </index>
+    <index id="IDX45" populated="true" UUID="41251ac2-3de8-4781-942a-0f1a0d363902" clustered="false" name="script_types_uk" physicalName="script_types_uk" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC46" populated="true" UUID="f79a4af7-b539-490f-9e5f-bbcb0bdb15ae" ascendingOrDescending="UNSPECIFIED" column-ref="COL41" name="script_name" physicalName="script_name" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB47" populated="true" UUID="09764fde-51d4-4acf-9fcb-9864fccaef6a" name="patch_scripts" objectType="TABLE" physicalName="patch_scripts" >
+   <remarks></remarks>
+   <folder id="FOLTAB471" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL48" populated="true" UUID="322de701-fb9e-448d-87fb-098fa040d90f" autoIncrement="false" autoIncrementSequenceName="patch_scripts_patch_script_id_seq" defaultValue="" name="patch_script_id" nullable="0" physicalName="patch_script_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL49" populated="true" UUID="07f03430-c81f-4516-ba25-03a05253444b" autoIncrement="false" autoIncrementSequenceName="patch_scripts_digest_id_seq" defaultValue="" name="digest_id" nullable="0" physicalName="digest_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL50" populated="true" UUID="980c322a-3aba-41a5-a848-e43f41124280" autoIncrement="false" autoIncrementSequenceName="patch_scripts_patch_version_id_seq" defaultValue="" name="patch_version_id" nullable="0" physicalName="patch_version_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL51" populated="true" UUID="965480d8-c53b-4298-a674-a90e80eccbd7" autoIncrement="false" autoIncrementSequenceName="patch_scripts_script_type_id_seq" defaultValue="" name="script_type_id" nullable="0" physicalName="script_type_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL52" populated="true" UUID="0687e589-aa10-4016-b3b4-5044f93393f2" autoIncrement="false" autoIncrementSequenceName="patch_scripts_time_stamp_seq" defaultValue="" name="time_stamp" nullable="0" physicalName="time_stamp" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB473" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB472" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB474" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX53" populated="true" UUID="0d6d469a-c60d-48fb-8fab-d59c71f77575" clustered="false" name="patch_scripts_pk" physicalName="patch_scripts_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC54" populated="true" UUID="207056a4-b123-4671-9240-8bba3685f04f" ascendingOrDescending="UNSPECIFIED" column-ref="COL48" name="patch_script_id" physicalName="patch_script_id" />
+    </index>
+    <index id="IDX55" populated="true" UUID="c7107955-3ba5-48ae-b95e-c3e62ecb040f" clustered="false" name="ps_di_idx" physicalName="ps_di_idx" primaryKeyIndex="false" unique="false" >
+     <index-column id="IDC56" populated="true" UUID="a441fd2a-458a-43fa-bc30-636a982095b5" ascendingOrDescending="UNSPECIFIED" column-ref="COL49" name="digest_id" physicalName="digest_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB57" populated="true" UUID="04304186-0115-4ce1-a985-d91c9bd62200" name="digests" objectType="TABLE" physicalName="digests" >
+   <remarks></remarks>
+   <folder id="FOLTAB571" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL58" populated="true" UUID="0dfba2de-614a-4a06-bc29-d401b2009527" autoIncrement="false" autoIncrementSequenceName="digests_digest_id_seq" defaultValue="" name="digest_id" nullable="0" physicalName="digest_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL59" populated="true" UUID="f0361a27-fd2f-42ab-ad41-6bc90288b06d" autoIncrement="false" autoIncrementSequenceName="digests_digest_seq" defaultValue="" name="digest" nullable="0" physicalName="digest" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL60" populated="true" UUID="3c511b2c-bfef-4456-bfb9-d9c4b0fc10cd" autoIncrement="false" autoIncrementSequenceName="digests_time_stamp_seq" defaultValue="" name="time_stamp" nullable="0" physicalName="time_stamp" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    <column id="COL61" populated="true" UUID="e0048f5a-e741-4780-ba76-8a0007b7367a" autoIncrement="false" autoIncrementSequenceName="digests_zcontent_seq" defaultValue="" name="zcontent" nullable="1" physicalName="zcontent" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2004" userDefinedTypeUUID="5c50e616-a448-40e1-abcd-5bfc04dcc607" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB573" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB572" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB574" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX62" populated="true" UUID="e0ab5714-ab88-434a-b9ab-3d96c7cd01b7" clustered="false" name="digests_pk" physicalName="digests_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC63" populated="true" UUID="3cb11853-e326-48df-81e8-1d0f057a457a" ascendingOrDescending="UNSPECIFIED" column-ref="COL58" name="digest_id" physicalName="digest_id" />
+    </index>
+    <index id="IDX64" populated="true" UUID="7387508d-0988-44dd-a50d-d7ae0bd3880e" clustered="false" name="digests_uk" physicalName="digests_uk" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC65" populated="true" UUID="316dfb2d-8c0a-42ec-a83b-896a89269794" ascendingOrDescending="UNSPECIFIED" column-ref="COL59" name="digest" physicalName="digest" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB66" populated="true" UUID="3491fa2a-7b45-41f5-a27d-cceb00b86934" name="file_types" objectType="TABLE" physicalName="file_types" >
+   <remarks></remarks>
+   <folder id="FOLTAB661" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL67" populated="true" UUID="67bb195e-4f92-4b5f-98a3-52ee9f448e56" autoIncrement="false" autoIncrementSequenceName="file_types_file_type_id_seq" defaultValue="" name="file_type_id" nullable="0" physicalName="file_type_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL68" populated="true" UUID="a57e3fa5-0a75-4898-9e9f-bc309bfb580d" autoIncrement="false" autoIncrementSequenceName="file_types_file_type_seq" defaultValue="" name="file_type" nullable="0" physicalName="file_type" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL69" populated="true" UUID="839653e6-e464-4aa1-8904-ee9c362a7a8e" autoIncrement="false" autoIncrementSequenceName="file_types_time_stamp_seq" defaultValue="" name="time_stamp" nullable="0" physicalName="time_stamp" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    <column id="COL70" populated="true" UUID="ab1fa7d5-4c34-4d8c-8d62-deee02b6d2b5" autoIncrement="false" autoIncrementSequenceName="file_types_description_seq" defaultValue="" name="description" nullable="1" physicalName="description" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB663" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB662" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB664" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX71" populated="true" UUID="f83d4b86-1705-4bd3-9dc1-e23fa90e3fb8" clustered="false" name="file_types_pk" physicalName="file_types_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC72" populated="true" UUID="3f463972-c21b-48ae-9a70-6a2fa67cb47c" ascendingOrDescending="UNSPECIFIED" column-ref="COL67" name="file_type_id" physicalName="file_type_id" />
+    </index>
+    <index id="IDX73" populated="true" UUID="cbd667b7-e087-4084-b082-c9832034ea6c" clustered="false" name="file_types_uk" physicalName="file_types_uk" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC74" populated="true" UUID="c963265f-44ec-40b8-86c8-cda92457b616" ascendingOrDescending="UNSPECIFIED" column-ref="COL68" name="file_type" physicalName="file_type" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB75" populated="true" UUID="610e376f-e90c-4fde-bae6-ea585a28bf7f" name="installed_files" objectType="TABLE" physicalName="installed_files" >
+   <remarks></remarks>
+   <folder id="FOLTAB751" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL76" populated="true" UUID="c259044f-cc9f-4174-8159-97f7a0ab065f" autoIncrement="false" autoIncrementSequenceName="installed_files_installed_file_id_seq" defaultValue="" name="installed_file_id" nullable="0" physicalName="installed_file_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL77" populated="true" UUID="23d11492-65bc-4c49-9645-fd5548edc1f2" autoIncrement="false" autoIncrementSequenceName="installed_files_digest_id_seq" defaultValue="" name="digest_id" nullable="0" physicalName="digest_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL78" populated="true" UUID="f72bb0d4-d57d-4444-afa4-4cd311b210f6" autoIncrement="false" autoIncrementSequenceName="installed_files_patch_version_id_seq" defaultValue="" name="patch_version_id" nullable="0" physicalName="patch_version_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL79" populated="true" UUID="59cb4dab-7b23-4d9f-ab7a-fe1b9c3a7b69" autoIncrement="false" autoIncrementSequenceName="installed_files_file_type_id_seq" defaultValue="" name="file_type_id" nullable="0" physicalName="file_type_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL80" populated="true" UUID="d33ae7bb-fa31-486e-8ade-9b126e9b5c81" autoIncrement="false" autoIncrementSequenceName="installed_files_file_name_seq" defaultValue="" name="file_name" nullable="0" physicalName="file_name" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL81" populated="true" UUID="97bd24d6-0270-461d-837c-1975ecdaed30" autoIncrement="false" autoIncrementSequenceName="installed_files_time_stamp_seq" defaultValue="" name="time_stamp" nullable="0" physicalName="time_stamp" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB753" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB752" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB754" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX82" populated="true" UUID="a43230d5-4c06-4f9f-ab46-23ee7a701a0e" clustered="false" name="installed_files_pk" physicalName="installed_files_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC83" populated="true" UUID="8a992ef3-408c-45dd-843b-06fa3414e9f2" ascendingOrDescending="UNSPECIFIED" column-ref="COL76" name="installed_file_id" physicalName="installed_file_id" />
+    </index>
+    <index id="IDX84" populated="true" UUID="4ca2a8e3-4f95-4c13-97f0-b3511d491b86" clustered="false" name="installed_files_uk" physicalName="installed_files_uk" primaryKeyIndex="false" unique="false" >
+     <index-column id="IDC85" populated="true" UUID="114e4cd3-1ab9-4efa-88e5-c5e414b69de4" ascendingOrDescending="UNSPECIFIED" column-ref="COL80" name="file_name" physicalName="file_name" />
+    </index>
+    <index id="IDX86" populated="true" UUID="817a87e6-f0c0-4d23-b48e-f9e97aad3edd" clustered="false" name="if_fn_idx" physicalName="if_fn_idx" primaryKeyIndex="false" unique="false" >
+     <index-column id="IDC87" populated="true" UUID="1dafc025-3c30-4977-8600-56f61b6cb9f6" ascendingOrDescending="UNSPECIFIED" column-ref="COL80" name="file_name" physicalName="file_name" />
+    </index>
+    <index id="IDX88" populated="true" UUID="ccf4dba0-9d4b-4ed0-8249-d99a6b07ad28" clustered="false" name="if_di_idx" physicalName="if_di_idx" primaryKeyIndex="false" unique="false" >
+     <index-column id="IDC89" populated="true" UUID="45d56246-e1b6-4a75-a58c-832a98b28527" ascendingOrDescending="UNSPECIFIED" column-ref="COL77" name="digest_id" physicalName="digest_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB90" populated="true" UUID="dab4274b-2c8f-4582-bba7-ac72c7e07392" name="backed_up_files" objectType="TABLE" physicalName="backed_up_files" >
+   <remarks></remarks>
+   <folder id="FOLTAB901" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL91" populated="true" UUID="a141f4c0-4c1f-4da8-925b-995bf77a0238" autoIncrement="false" autoIncrementSequenceName="backed_up_files_backed_up_file_id_seq" defaultValue="" name="backed_up_file_id" nullable="0" physicalName="backed_up_file_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL92" populated="true" UUID="d3c1842b-2daa-4905-83f2-3deaf15db640" autoIncrement="false" autoIncrementSequenceName="backed_up_files_patch_version_id_seq" defaultValue="" name="patch_version_id" nullable="0" physicalName="patch_version_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL93" populated="true" UUID="3b97ea1f-3d2b-4425-934a-dda8a4313910" autoIncrement="false" autoIncrementSequenceName="backed_up_files_digest_id_seq" defaultValue="" name="digest_id" nullable="0" physicalName="digest_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL94" populated="true" UUID="5053e086-9113-491e-a600-e3f51d2c60ae" autoIncrement="false" autoIncrementSequenceName="backed_up_files_file_name_seq" defaultValue="" name="file_name" nullable="0" physicalName="file_name" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL95" populated="true" UUID="5c4ed684-9b1b-47c7-a649-8de61953ec4b" autoIncrement="false" autoIncrementSequenceName="backed_up_files_time_stamp_seq" defaultValue="" name="time_stamp" nullable="0" physicalName="time_stamp" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB903" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB902" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB904" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX96" populated="true" UUID="cda67120-993c-4395-9389-3335328412a2" clustered="false" name="backed_up_files_pk" physicalName="backed_up_files_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC97" populated="true" UUID="9701d879-f175-41e9-a3e8-cb21c33af0ac" ascendingOrDescending="UNSPECIFIED" column-ref="COL91" name="backed_up_file_id" physicalName="backed_up_file_id" />
+    </index>
+    <index id="IDX98" populated="true" UUID="6fbf5bdb-54f6-417d-9b58-d914e147323d" clustered="false" name="buf_fn_idx" physicalName="buf_fn_idx" primaryKeyIndex="false" unique="false" >
+     <index-column id="IDC99" populated="true" UUID="f2454d7a-b724-43ad-a402-e184a9817eae" ascendingOrDescending="UNSPECIFIED" column-ref="COL94" name="file_name" physicalName="file_name" />
+    </index>
+    <index id="IDX100" populated="true" UUID="b1a0228a-9537-428a-b229-5a526330c913" clustered="false" name="backed_up_files_uk" physicalName="backed_up_files_uk" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC101" populated="true" UUID="57b31771-8b7c-4e86-b166-2dbda75a1d8b" ascendingOrDescending="UNSPECIFIED" column-ref="COL92" name="patch_version_id" physicalName="patch_version_id" />
+     <index-column id="IDC102" populated="true" UUID="6126fac0-46a4-40ae-b73b-1593ab0f42f0" ascendingOrDescending="UNSPECIFIED" column-ref="COL94" name="file_name" physicalName="file_name" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB103" populated="true" UUID="ee8d1b6a-60ce-4db0-a830-1a91f8c407c6" name="input_vars" objectType="TABLE" physicalName="input_vars" >
+   <remarks></remarks>
+   <folder id="FOLTAB1031" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL104" populated="true" UUID="01db9a5b-91fb-4c06-a25a-2a6202c99703" autoIncrement="false" autoIncrementSequenceName="input_vars_input_var_id_seq" defaultValue="" name="input_var_id" nullable="0" physicalName="input_var_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL105" populated="true" UUID="3d75dceb-6f75-47d6-861d-d08999aa4447" autoIncrement="false" autoIncrementSequenceName="input_vars_patch_version_id_seq" defaultValue="" name="patch_version_id" nullable="0" physicalName="patch_version_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL106" populated="true" UUID="04be92ad-757b-4668-9024-0d26828c1c3c" autoIncrement="false" autoIncrementSequenceName="input_vars_var_name_seq" defaultValue="" name="var_name" nullable="0" physicalName="var_name" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL107" populated="true" UUID="235af413-a2c9-40ae-a366-cb73381e1d57" autoIncrement="false" autoIncrementSequenceName="input_vars_time_stamp_seq" defaultValue="" name="time_stamp" nullable="0" physicalName="time_stamp" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL108" populated="true" UUID="0c4c4a83-5ea6-469f-8e78-3aa3085c6afd" autoIncrement="false" autoIncrementSequenceName="input_vars_var_value_seq" defaultValue="" name="var_value" nullable="0" physicalName="var_value" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB1033" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB1032" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB1034" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX109" populated="true" UUID="52f78c3f-f462-4e76-a1af-27cfc860189b" clustered="false" name="input_vars_pk" physicalName="input_vars_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC110" populated="true" UUID="d89dd662-42c6-479d-a8a6-3b1b4a9b9831" ascendingOrDescending="UNSPECIFIED" column-ref="COL104" name="input_var_id" physicalName="input_var_id" />
+    </index>
+    <index id="IDX111" populated="true" UUID="6fb54b43-2338-4d33-b927-1d2504849bc2" clustered="false" name="input_vars_uk" physicalName="input_vars_uk" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC112" populated="true" UUID="300f09a4-5e22-43e2-8b35-a4324cd1d111" ascendingOrDescending="UNSPECIFIED" column-ref="COL105" name="patch_version_id" physicalName="patch_version_id" />
+     <index-column id="IDC113" populated="true" UUID="c2d411da-d080-49ee-8248-775e1bf1be50" ascendingOrDescending="UNSPECIFIED" column-ref="COL106" name="var_name" physicalName="var_name" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB114" populated="true" UUID="9944821d-c8b6-4c14-828b-7d5bc95760e2" name="requisites" objectType="TABLE" physicalName="requisites" >
+   <remarks></remarks>
+   <folder id="FOLTAB1141" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL115" populated="true" UUID="b3e07d42-8b72-4639-97cd-6a2a34199006" autoIncrement="false" autoIncrementSequenceName="requisites_requisite_id_seq" defaultValue="" name="requisite_id" nullable="0" physicalName="requisite_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL116" populated="true" UUID="0dbd117a-98f5-4634-8de0-c47d4e440a21" autoIncrement="false" autoIncrementSequenceName="requisites_patch_version_id_seq" defaultValue="" name="patch_version_id" nullable="0" physicalName="patch_version_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL117" populated="true" UUID="d58e0e72-6115-4720-be40-d2d833f5c78d" autoIncrement="false" autoIncrementSequenceName="requisites_req_patch_id_seq" defaultValue="" name="req_patch_id" nullable="0" physicalName="req_patch_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL118" populated="true" UUID="cda90d89-f17a-4622-82d2-e411abbb1a04" autoIncrement="false" autoIncrementSequenceName="requisites_interval_seq" defaultValue="" name="interval" nullable="0" physicalName="interval" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2004" userDefinedTypeUUID="5c50e616-a448-40e1-abcd-5bfc04dcc607" >
+     <remarks></remarks>
+    </column>
+    <column id="COL119" populated="true" UUID="93fb3753-07a1-4c98-9672-abb2377ce8c2" autoIncrement="false" autoIncrementSequenceName="requisites_time_stamp_seq" defaultValue="" name="time_stamp" nullable="0" physicalName="time_stamp" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB1143" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB1142" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB1144" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX120" populated="true" UUID="f0454b39-78ba-45c0-a3d4-a1b58c83cf52" clustered="false" name="requisites_pk" physicalName="requisites_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC121" populated="true" UUID="688fdfa6-1730-4724-9e05-3445f7ca564a" ascendingOrDescending="UNSPECIFIED" column-ref="COL115" name="requisite_id" physicalName="requisite_id" />
+    </index>
+    <index id="IDX122" populated="true" UUID="855cf82e-96c9-4dcc-af1d-84fb5eb46ca0" clustered="false" name="requisites_req_patch_id_idx" physicalName="requisites_req_patch_id_idx" primaryKeyIndex="false" unique="false" >
+     <index-column id="IDC123" populated="true" UUID="914455fb-4825-4546-8c85-e90f35b7dfe4" ascendingOrDescending="UNSPECIFIED" column-ref="COL116" name="patch_version_id" physicalName="patch_version_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB124" populated="true" UUID="212c0abc-d521-4cf2-a277-037400269d2b" name="conflicts" objectType="TABLE" physicalName="conflicts" >
+   <remarks></remarks>
+   <folder id="FOLTAB1241" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL125" populated="true" UUID="87d08c9e-55eb-428d-af98-ae2df61dc592" autoIncrement="false" autoIncrementSequenceName="conflicts_conflict_id_seq" defaultValue="" name="conflict_id" nullable="0" physicalName="conflict_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL126" populated="true" UUID="7058178b-cfd1-42bf-b8fd-c945183405b4" autoIncrement="false" autoIncrementSequenceName="conflicts_patch_version_id_seq" defaultValue="" name="patch_version_id" nullable="0" physicalName="patch_version_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL127" populated="true" UUID="b136d708-397e-44f3-b481-332ea46d6312" autoIncrement="false" autoIncrementSequenceName="conflicts_conf_patch_id_seq" defaultValue="" name="conf_patch_id" nullable="0" physicalName="conf_patch_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL128" populated="true" UUID="5df2b5aa-4832-44ed-b9e5-56a092d8d930" autoIncrement="false" autoIncrementSequenceName="conflicts_interval_seq" defaultValue="" name="interval" nullable="0" physicalName="interval" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2004" userDefinedTypeUUID="5c50e616-a448-40e1-abcd-5bfc04dcc607" >
+     <remarks></remarks>
+    </column>
+    <column id="COL129" populated="true" UUID="94bd9ff5-800a-43f7-bd38-25d496ce3850" autoIncrement="false" autoIncrementSequenceName="conflicts_time_stamp_seq" defaultValue="" name="time_stamp" nullable="0" physicalName="time_stamp" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB1243" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB1242" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB1244" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX130" populated="true" UUID="19f80f88-d693-42de-8ce3-668b932409cd" clustered="false" name="conflicts_pk" physicalName="conflicts_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC131" populated="true" UUID="6823a022-8bcc-4a73-81af-334a7b385e0d" ascendingOrDescending="UNSPECIFIED" column-ref="COL125" name="conflict_id" physicalName="conflict_id" />
+    </index>
+    <index id="IDX132" populated="true" UUID="7addad72-617b-4f01-9afe-4482f30089f6" clustered="false" name="conflicts_conf_patch_id_idx" physicalName="conflicts_conf_patch_id_idx" primaryKeyIndex="false" unique="false" >
+     <index-column id="IDC133" populated="true" UUID="864eed56-86db-4245-b5f4-f307143714e4" ascendingOrDescending="UNSPECIFIED" column-ref="COL127" name="conf_patch_id" physicalName="conf_patch_id" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB134" populated="true" UUID="a17ccd0b-8aa9-434d-9521-f3e455324407" name="patch_versions" objectType="TABLE" physicalName="patch_versions" >
+   <remarks></remarks>
+   <folder id="FOLTAB1341" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL135" populated="true" UUID="36ec1dd9-20ce-47d2-b86b-1b979cc0d77f" autoIncrement="false" autoIncrementSequenceName="patch_versions_patch_version_id_seq" defaultValue="" name="patch_version_id" nullable="0" physicalName="patch_version_id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL136" populated="true" UUID="7e947bad-ac47-40fd-b98e-dbc14553dd16" autoIncrement="false" autoIncrementSequenceName="patch_versions_patch_status_id_seq" defaultValue="" name="patch_status_id" nullable="0" physicalName="patch_status_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL137" populated="true" UUID="70a31c01-bb6b-462d-b003-4d2f9f5926ea" autoIncrement="false" autoIncrementSequenceName="patch_versions_patch_id_seq" defaultValue="" name="patch_id" nullable="0" physicalName="patch_id" precision="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL138" populated="true" UUID="90fa8834-ad0c-4618-957c-deeb8b447d47" autoIncrement="false" autoIncrementSequenceName="patch_versions_version_seq" defaultValue="" name="version" nullable="0" physicalName="version" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL139" populated="true" UUID="de3a5320-88ae-44f9-ada9-b115f3e1fa41" autoIncrement="false" autoIncrementSequenceName="patch_versions_short_desc_seq" defaultValue="" name="short_desc" nullable="0" physicalName="short_desc" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL140" populated="true" UUID="4a3076b6-a142-4600-9231-202370c1c2a6" autoIncrement="false" autoIncrementSequenceName="patch_versions_time_stamp_seq" defaultValue="" name="time_stamp" nullable="0" physicalName="time_stamp" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
+     <remarks></remarks>
+    </column>
+    <column id="COL141" populated="true" UUID="227bdbe5-75a0-41b8-bead-a692fb337a80" autoIncrement="false" autoIncrementSequenceName="patch_versions_prefix_seq" defaultValue="" name="prefix" nullable="0" physicalName="prefix" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL142" populated="true" UUID="13549814-92b8-4196-9ced-cbcb52ae3167" autoIncrement="false" autoIncrementSequenceName="patch_versions_uid_seq" defaultValue="" name="uid" nullable="0" physicalName="uid" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL143" populated="true" UUID="85659774-4f78-496c-8453-4edb813092d4" autoIncrement="false" autoIncrementSequenceName="patch_versions_backup_info_seq" defaultValue="" name="backup_info" nullable="1" physicalName="backup_info" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2004" userDefinedTypeUUID="5c50e616-a448-40e1-abcd-5bfc04dcc607" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB1343" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB1342" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB1344" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX144" populated="true" UUID="1f97f440-183e-4846-85fd-a3286b3e2818" clustered="false" name="patch_versions_pk" physicalName="patch_versions_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC145" populated="true" UUID="c4269d7a-12f8-41e8-ab57-05ea17fc75ef" ascendingOrDescending="UNSPECIFIED" column-ref="COL135" name="patch_version_id" physicalName="patch_version_id" />
+    </index>
+    <index id="IDX146" populated="true" UUID="1f02806d-d2b0-49e3-8341-d7ed628795f2" clustered="false" name="patch_versions_uk" physicalName="patch_versions_uk" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC147" populated="true" UUID="8702986a-8e86-42f7-a955-a494c8508923" ascendingOrDescending="UNSPECIFIED" column-ref="COL138" name="version" physicalName="version" />
+    </index>
+   </folder>
+  </table>
+  <relationships>
+   <relationship id="REL148" populated="true" UUID="0618b5ae-ddf5-42b4-aae0-3606a2b2df3a" deferrability="7" deleteRule="3" fk-table-ref="TAB134" fkCardinality="7" identifying="true" name="patch_status_patch_versions_fk" physicalName="patch_status_patch_versions_fk" pk-table-ref="TAB12" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP149" populated="true" UUID="c6cb5d28-aa34-4060-b08b-37c0d3cc8a97" fk-column-ref="COL136" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL13" />
+   </relationship>
+   <relationship id="REL150" populated="true" UUID="b5874091-98d9-4563-b651-f41675eb5ecc" deferrability="7" deleteRule="3" fk-table-ref="TAB134" fkCardinality="7" identifying="true" name="patches_patch_versions_fk" physicalName="patches_patch_versions_fk" pk-table-ref="TAB21" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP151" populated="true" UUID="4603b632-58c7-4a16-b852-47c7ffcc84d0" fk-column-ref="COL137" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL22" />
+   </relationship>
+   <relationship id="REL152" populated="true" UUID="2c7ce0c1-ee52-4f39-a20e-16764d79872e" deferrability="7" deleteRule="3" fk-table-ref="TAB47" fkCardinality="7" identifying="true" name="script_types_patch_scripts_fk" physicalName="script_types_patch_scripts_fk" pk-table-ref="TAB39" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP153" populated="true" UUID="29267d93-b83f-4353-8303-8b1a4f4cff47" fk-column-ref="COL51" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL40" />
+   </relationship>
+   <relationship id="REL154" populated="true" UUID="1514b359-f07e-4569-9634-5376e20d7521" deferrability="7" deleteRule="3" fk-table-ref="TAB47" fkCardinality="7" identifying="true" name="digests_patch_scripts_fk" physicalName="digests_patch_scripts_fk" pk-table-ref="TAB57" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP155" populated="true" UUID="af634823-91c8-49d7-815d-b83f5e8b0316" fk-column-ref="COL49" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL58" />
+   </relationship>
+   <relationship id="REL156" populated="true" UUID="d56e4e12-716a-4614-bdfd-b9f7a56d1c8b" deferrability="7" deleteRule="3" fk-table-ref="TAB75" fkCardinality="7" identifying="true" name="digests_installed_files_fk" physicalName="digests_installed_files_fk" pk-table-ref="TAB57" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP157" populated="true" UUID="6caaa643-cfad-4328-af43-d3c39183d7b2" fk-column-ref="COL77" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL58" />
+   </relationship>
+   <relationship id="REL158" populated="true" UUID="762a08ea-bce6-4a46-9252-a9a7f7f2d2b6" deferrability="7" deleteRule="3" fk-table-ref="TAB90" fkCardinality="7" identifying="true" name="digests_backed_up_files_fk" physicalName="digests_backed_up_files_fk" pk-table-ref="TAB57" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP159" populated="true" UUID="7cbba556-d639-4e55-8666-8b4e71b49562" fk-column-ref="COL93" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL58" />
+   </relationship>
+   <relationship id="REL160" populated="true" UUID="47d3ed3b-b56a-4862-9e12-04e101b4b458" deferrability="7" deleteRule="3" fk-table-ref="TAB75" fkCardinality="7" identifying="true" name="file_types_installed_files_fk" physicalName="file_types_installed_files_fk" pk-table-ref="TAB66" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP161" populated="true" UUID="91996354-b37c-4b15-9e5e-237d785643a9" fk-column-ref="COL79" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL67" />
+   </relationship>
+   <relationship id="REL162" populated="true" UUID="8e8908b2-304c-4153-b68b-d9cd0191cc02" deferrability="7" deleteRule="3" fk-table-ref="TAB29" fkCardinality="7" identifying="true" name="patch_versions_checkinstall_vars_fk" physicalName="patch_versions_checkinstall_vars_fk" pk-table-ref="TAB134" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP163" populated="true" UUID="973ab2ed-a564-42c0-b2a6-486ea2212977" fk-column-ref="COL31" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL135" />
+   </relationship>
+   <relationship id="REL164" populated="true" UUID="0fb3ae5b-f110-44d5-a394-72057e7ab85c" deferrability="7" deleteRule="3" fk-table-ref="TAB47" fkCardinality="7" identifying="true" name="patch_versions_patch_scripts_fk" physicalName="patch_versions_patch_scripts_fk" pk-table-ref="TAB134" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP165" populated="true" UUID="1cbd0ef8-8e94-45a3-95ea-b2343899e6ca" fk-column-ref="COL50" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL135" />
+   </relationship>
+   <relationship id="REL166" populated="true" UUID="60af58bc-e5cd-4183-abd6-9263d1d3769a" deferrability="7" deleteRule="3" fk-table-ref="TAB75" fkCardinality="7" identifying="true" name="patch_versions_installed_files_fk" physicalName="patch_versions_installed_files_fk" pk-table-ref="TAB134" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP167" populated="true" UUID="42f81bd8-7a59-4984-847a-e981e9bae1f9" fk-column-ref="COL78" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL135" />
+   </relationship>
+   <relationship id="REL168" populated="true" UUID="62529e22-1e87-4327-802e-218dfed9ad9a" deferrability="7" deleteRule="3" fk-table-ref="TAB90" fkCardinality="7" identifying="true" name="patch_versions_backed_up_files_fk" physicalName="patch_versions_backed_up_files_fk" pk-table-ref="TAB134" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP169" populated="true" UUID="90dd2702-867f-4957-809d-2706a76806ed" fk-column-ref="COL92" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL135" />
+   </relationship>
+   <relationship id="REL170" populated="true" UUID="d43c799b-7873-4369-8e49-e64d4792a01d" deferrability="7" deleteRule="3" fk-table-ref="TAB124" fkCardinality="7" identifying="true" name="patch_versions_conflicts_fk" physicalName="patch_versions_conflicts_fk" pk-table-ref="TAB134" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP171" populated="true" UUID="f744714e-9f18-4f8d-9c6f-aac56ca918ee" fk-column-ref="COL126" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL135" />
+   </relationship>
+   <relationship id="REL172" populated="true" UUID="52959c12-893a-413f-943d-aa416cd7beb5" deferrability="7" deleteRule="3" fk-table-ref="TAB114" fkCardinality="7" identifying="true" name="patch_versions_requisites_fk" physicalName="patch_versions_requisites_fk" pk-table-ref="TAB134" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP173" populated="true" UUID="f39a1ce7-b3f8-434a-bffa-24e8f5f021c1" fk-column-ref="COL116" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL135" />
+   </relationship>
+   <relationship id="REL174" populated="true" UUID="42236a7c-fc74-4998-900e-eceae7eb7db7" deferrability="7" deleteRule="3" fk-table-ref="TAB103" fkCardinality="7" identifying="true" name="patch_versions_input_vars_fk" physicalName="patch_versions_input_vars_fk" pk-table-ref="TAB134" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP175" populated="true" UUID="de241253-36f5-4a11-92fa-616af52434e4" fk-column-ref="COL105" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL135" />
+   </relationship>
+   <relationship id="REL176" populated="true" UUID="eee065d6-8c0d-434e-b0bf-879452a561db" deferrability="7" deleteRule="3" fk-table-ref="TAB4" fkCardinality="7" identifying="true" name="patch_versions_info_vars_fk" physicalName="patch_versions_info_vars_fk" pk-table-ref="TAB134" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP177" populated="true" UUID="ced33288-d712-4451-80da-bbb633e07b57" fk-column-ref="COL6" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL135" />
+   </relationship>
+  </relationships>
+ </target-database>
+ <ddl-generator type="ca.sqlpower.architect.ddl.GenericDDLGenerator" allow-connection="true"> </ddl-generator>
+ <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
+ <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
+ <play-pen zoom="0.8832137733142037" viewportX="0" viewportY="0" relationship-style="direct" names-displayLogicalNames="false" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+  <table-pane table-ref="TAB12" x="27" y="468" bgColor="0xb9bbf6" fgColor="0x000000" rounded="true" dashed="false"/>
+  <table-pane table-ref="TAB1" x="27" y="32" bgColor="0xb9bbf6" fgColor="0x000000" rounded="true" dashed="false"/>
+  <table-pane table-ref="TAB4" x="28" y="193" bgColor="0xb9bbf6" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB21" x="209" y="32" bgColor="0xb9bbf6" fgColor="0x000000" rounded="true" dashed="false"/>
+  <table-pane table-ref="TAB29" x="29" y="324" bgColor="0xb9bbf6" fgColor="0x000000" rounded="true" dashed="false"/>
+  <table-pane table-ref="TAB39" x="26" y="604" bgColor="0xb9bbf6" fgColor="0x000000" rounded="true" dashed="false"/>
+  <table-pane table-ref="TAB47" x="295" y="604" bgColor="0xb9bbf6" fgColor="0x000000" rounded="true" dashed="false"/>
+  <table-pane table-ref="TAB57" x="730" y="615" bgColor="0xb9bbf6" fgColor="0x000000" rounded="true" dashed="false"/>
+  <table-pane table-ref="TAB66" x="449" y="466" bgColor="0xb9bbf6" fgColor="0x000000" rounded="true" dashed="false"/>
+  <table-pane table-ref="TAB75" x="687" y="443" bgColor="0xb9bbf6" fgColor="0x000000" rounded="true" dashed="false"/>
+  <table-pane table-ref="TAB90" x="733" y="298" bgColor="0xb9bbf6" fgColor="0x000000" rounded="true" dashed="false"/>
+  <table-pane table-ref="TAB103" x="730" y="184" bgColor="0xb9bbf6" fgColor="0x000000" rounded="true" dashed="false"/>
+  <table-pane table-ref="TAB114" x="651" y="32" bgColor="0xb9bbf6" fgColor="0x000000" rounded="true" dashed="false"/>
+  <table-pane table-ref="TAB124" x="432" y="32" bgColor="0xb9bbf6" fgColor="0x000000" rounded="true" dashed="false"/>
+  <table-pane table-ref="TAB134" x="333" y="219" bgColor="0xb9bbf6" fgColor="0x000000" rounded="true" dashed="false"/>
+  <table-link relationship-ref="REL150" pkConnection="0.8219895287958116" fkConnection="0.15207373271889402" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL162" pkConnection="0.8181818181818182" fkConnection="0.2857142857142857" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL148" pkConnection="0.4777777777777778" fkConnection="0.185" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="65"/>
+  <table-link relationship-ref="REL152" pkConnection="0.49333333333333335" fkConnection="0.3523809523809524" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL164" pkConnection="0.41013824884792627" fkConnection="0.5833333333333334" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL154" pkConnection="0.5" fkConnection="0.5333333333333333" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL160" pkConnection="0.5" fkConnection="0.5666666666666667" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL166" pkConnection="0.72" fkConnection="0.25833333333333336" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="36"/>
+  <table-link relationship-ref="REL156" pkConnection="0.5" fkConnection="0.5833333333333334" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL158" pkConnection="0.6222222222222222" fkConnection="0.9019607843137255" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="65"/>
+  <table-link relationship-ref="REL168" pkConnection="0.7393939393939394" fkConnection="0.4095238095238095" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL170" pkConnection="0.728110599078341" fkConnection="0.27314814814814814" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="72"/>
+  <table-link relationship-ref="REL172" pkConnection="0.13333333333333333" fkConnection="0.115" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="65"/>
+  <table-link relationship-ref="REL174" pkConnection="0.21212121212121213" fkConnection="0.6666666666666666" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="33"/>
+  <table-link relationship-ref="REL176" pkConnection="0.23636363636363636" fkConnection="0.6190476190476191" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="18"/>
+ </play-pen>
+ <critic-manager>
+  <critic-grouping platformType="Generic" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PrimaryKeyCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.RelationshipMappingTypeCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.EmptyRelationshipCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.AlphaNumericSequenceNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetDefaultOnColumnWithNoDefaultCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SetNullOnNonNullableColumnCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DuplicateNameCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="DB2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.DB2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="H2" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.H2UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="HSQLDB" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.HSQLDBUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="MySQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLCommentCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.MySQLUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="Oracle" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OraclePhysicalNameCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleReservedWordsCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.OracleUnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="PostgreSQL" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.PostgreSQLReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerUnsupportedFeaturesCritic" severity="ERROR"/>
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServerReservedWordsCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2000" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2000UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+  <critic-grouping platformType="SQL Server 2005" enabled="true">
+   <critic-settings class="ca.sqlpower.architect.ddl.critic.impl.SQLServer2005UnsupportedFeaturesCritic" severity="ERROR"/>
+  </critic-grouping>
+ </critic-manager>
+ <profiles topNCount="10">
+  </profiles>
+  <olap>
+  </olap>
+  <olap-gui>
+  </olap-gui>
+</architect-project>

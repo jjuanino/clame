@@ -1,0 +1,28 @@
+PATCH_STATUS;DESCRIPTION
+RUN_PREINSTALL;Executing preinstall phase
+ERROR_PREINSTALL;Preinstall phase ended with error
+RUN_BACKUP;Executing backup phase
+ERROR_BACKUP;Error doing backup
+RUN_SCHEMA;Instaling schema files and directories
+ERROR_SCHEMA;Error installing schema files
+RUN_POSTINSTALL;Executing postinstall phase
+ERROR_POSTINSTALL;Postinstall phase ended with error
+REGISTER_INSTALLED_FILES;Registering installed files
+ERROR_REGISTER_INSTALLED_FILES;Error registering installed files
+REGISTER_INSTALL_SCRIPTS;Registering install scripts
+ERROR_REGISTER_INSTALL_SCRIPTS;Error registering install scripts
+REGISTER_REQUISITES;Registering requisites
+ERROR_REGISTER_REQUISITES;Error register requisites
+REGISTER_CONFLICTS;Registering conflicts
+ERROR_REGISTER_CONFLICTS;Error registering conflicts
+REGISTER_INPUT_VARS;Registering input vars
+ERROR_REGISTER_INPUT_VARS;Error registering input vars
+INSTALLED;Patch successfully installed
+RUN_PREREMOVE;Executing preremove phase
+ERROR_PREREMOVE;Preremove phase ended with error
+RUN_POSTREMOVE;Executing postremove phase
+ERROR_POSTREMOVE;Postremove phase ended with error
+RUN_RESTORE;Executing restore phase
+ERROR_RESTORE;Restore phase ended with error
+REGISTER_INFO_VARS;Registering info vars
+ERROR_REGISTER_INFO_VARS;Error registering info vars

@@ -1,0 +1,5 @@
+# vim: set ft=conf:
+# $Id$
+
+PERMS="0644"
+OWNERS="root:daemon"

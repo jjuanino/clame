@@ -1,0 +1,5 @@
+# vim: set ft=conf:
+# $Id$
+N NORMAL_VAR1 Request for a normal variable
+B BOOL_VAR1 Request for a boolean variable
+B BOOL_VAR2 Request for a boolean variable
