@@ -349,11 +349,12 @@ need the following ruby gems:
 #. sys-filesystem
 #. ruby-termios
 #. sqlite3
+#. rubyzip
 
 You can install these gems by mean of your operating system package manager
 (dpkg in Debian, FreeBSD ports, etc) or directly by running::
 
-    # gem install rake mkfifo sys-filesystem ruby-termios sqlite3
+    # gem install rake mkfifo sys-filesystem ruby-termios sqlite3 rubyzip
 
 
 Build and install clame
