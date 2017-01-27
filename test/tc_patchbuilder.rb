@@ -40,8 +40,14 @@ class TestPatchBuilder < Test::Unit::TestCase
 
   def setup
     @tempdir = Dir.mktmpdir
-    # Versión  major, minor de la librería marshal
-    @mrs_vers = Marshal::MAJOR_VERSION.to_s + '.' + Marshal::MINOR_VERSION.to_s
+    Factory.bootstrap_conf
+    CONF_SETTINGS[:log_file] = File.join(@tempdir, 'clame.log')
+    CONF_SETTINGS[:database_path] = File.join(@tempdir, 'clame.db')
+    CONF_SETTINGS[:backup_dir_install] = File.join(@tempdir, 'save')
+    CONF_SETTINGS[:baseclame] = 'BASEDIR'
+    Dir.mkdir(CONF_SETTINGS[:backup_dir_install])
+    Factory.bootstrap_logger
+    Factory.bootstrap_database
   end
 
 
@@ -87,9 +93,11 @@ class TestPatchBuilder < Test::Unit::TestCase
       zip_test = File.join(@tempdir, 'test_build_bison_1.zip')
       hash_contents = PatchBuilder.build(['tc_patchbuilder/bison'], zip_test)
 
-      expected =
-          '6a405c7059e662e2d40caef7bf752258a2ab8e9277df05b86e644d201592e5b8'
-
+      expected = \
+        case RUBY_VERSION
+        when "2.1.5" then '01c34d027b307473720b1b94f1fe8ca5e9814a785a965db0816a557f1c901c30'
+        when "2.2.6" then '6a405c7059e662e2d40caef7bf752258a2ab8e9277df05b86e644d201592e5b8'
+        end
 
       assert_equal([expected], hash_contents)
 
@@ -109,8 +117,11 @@ class TestPatchBuilder < Test::Unit::TestCase
       zip_test = File.join(@tempdir, 'test_build_bison_2.zip')
       hash_contents = PatchBuilder.new('bison').build(zip_test)
 
-      expected =
-        '6a405c7059e662e2d40caef7bf752258a2ab8e9277df05b86e644d201592e5b8'
+      expected = \
+        case RUBY_VERSION
+        when "2.1.5" then '01c34d027b307473720b1b94f1fe8ca5e9814a785a965db0816a557f1c901c30'
+        when "2.2.6" then '6a405c7059e662e2d40caef7bf752258a2ab8e9277df05b86e644d201592e5b8'
+        end
 
       assert_equal(expected, hash_contents)
 
@@ -130,8 +141,11 @@ class TestPatchBuilder < Test::Unit::TestCase
       zip_test = File.join(@tempdir, 'test_build_bison_3.zip')
       hash_contents = PatchBuilder.new('.').build(zip_test)
 
-      expected =
-        '6a405c7059e662e2d40caef7bf752258a2ab8e9277df05b86e644d201592e5b8'
+      expected = \
+        case RUBY_VERSION
+        when "2.1.5" then '01c34d027b307473720b1b94f1fe8ca5e9814a785a965db0816a557f1c901c30'
+        when "2.2.6" then '6a405c7059e662e2d40caef7bf752258a2ab8e9277df05b86e644d201592e5b8'
+        end
 
       assert_equal(expected, hash_contents)
 
@@ -152,8 +166,11 @@ class TestPatchBuilder < Test::Unit::TestCase
       zip_test = File.join(@tempdir, 'test_build_autoconf_1.zip')
       hash_contents = PatchBuilder.new('.').build(zip_test)
 
-      expected =
-        'b530ebef46f6c32725ef9e613365bdaec9b14124d7bbc54dac71dc2188b61600'
+      expected = \
+        case RUBY_VERSION
+        when "2.2.6" then 'b530ebef46f6c32725ef9e613365bdaec9b14124d7bbc54dac71dc2188b61600'
+        when "2.1.5" then 'e63c0274ec64395665a27ae23289f102a84cb12e3b74f6e502f51706096170e7'
+        end
 
       assert_equal(expected, hash_contents)
 
@@ -175,9 +192,11 @@ class TestPatchBuilder < Test::Unit::TestCase
       zip_test = File.join(@tempdir, 'test_build_autoconf_2.zip')
       hash_contents = PatchBuilder.new('autoconf').build(zip_test)
 
-
-      expected =
-        'b530ebef46f6c32725ef9e613365bdaec9b14124d7bbc54dac71dc2188b61600'
+      expected = \
+        case RUBY_VERSION
+        when "2.2.6" then 'b530ebef46f6c32725ef9e613365bdaec9b14124d7bbc54dac71dc2188b61600'
+        when "2.1.5" then 'e63c0274ec64395665a27ae23289f102a84cb12e3b74f6e502f51706096170e7'
+        end
 
       assert_equal(expected, hash_contents)
 
@@ -236,14 +255,25 @@ class TestPatchBuilder < Test::Unit::TestCase
         ['bison', 'autoconf'], zip_test,
         {variables: {'VARNAME' => 'Var value'}, quiet: true}
       )
+
       expected =
+        case RUBY_VERSION
+        when "2.2.6"
           ['09e42fe1a433eaa53e58a41bb7440f254145efd53dfa899167f9fed740c8fa3a',
             'c2dfb69d753038366dc8348976ec6f6fbc291b260c6d5348187e209d32265491']
+        when "2.1.5"
+          ['29550237062d2c1044cff75515a321760ea4090742a75573683b7617d863b99a',
+            'e014454451b38f73cba7a8bc5d21b95fc8d1f4970e025aafe9c3ea0c4973901c']
+        end
 
       assert_equal(expected, hash_contents)
 
       expected =
-          'c2dfb69d753038366dc8348976ec6f6fbc291b260c6d5348187e209d32265491'
+        case RUBY_VERSION
+        when "2.2.6" then 'c2dfb69d753038366dc8348976ec6f6fbc291b260c6d5348187e209d32265491'
+        when "2.1.5" then 'e014454451b38f73cba7a8bc5d21b95fc8d1f4970e025aafe9c3ea0c4973901c'
+        end
+
 
       assert_equal(
         expected,
@@ -255,7 +285,10 @@ class TestPatchBuilder < Test::Unit::TestCase
       )
 
       expected =
-          '09e42fe1a433eaa53e58a41bb7440f254145efd53dfa899167f9fed740c8fa3a'
+        case RUBY_VERSION
+        when "2.2.6" then '09e42fe1a433eaa53e58a41bb7440f254145efd53dfa899167f9fed740c8fa3a'
+        when "2.1.5" then '29550237062d2c1044cff75515a321760ea4090742a75573683b7617d863b99a'
+        end
 
       assert_equal(
         expected,

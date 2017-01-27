@@ -247,12 +247,12 @@ class TestBackupPatch < Test::Unit::TestCase
     end
 
 
-    # Despues de instalar, no hay espacio libre: se necesitan 1032 bloques
-    # NOTA: Este test no se realiza en ZFS
+    # Despues de instalar, no hay espacio libre: se necesitan 464 bloques
+    # NOTA: Este test no se realiza en ZFS o en filesystem con filesystem_id=0
     if Sys::Filesystem.stat(@instdir).filesystem_id.zero?
-      omit("ZFS Filesystem. Skipping NotEnoughFsFreeSpace assertion")
+      omit("Filesystem not valid for NotEnoughFsFreeSpace assertion")
     end
-    Fs.free_space[backup_fs] = 1031
+    Fs.free_space[backup_fs] = 463
     assert_raise(NotEnoughFsFreeSpace) do
       BackupPatch.new(@bison_core, @instdir, []).check_room
     end
