@@ -574,105 +574,6 @@ module Clame
         checkins_out_vars[var_name] = var_value
       end
 
-      # Ejecución del preinstall
-      if core.scripts_install[Core::PREINSTALL]
-        Clame.puts_info "Run preinstall"
-        Clame.logger.debug "Preinstall execution"
-        set_status(ST_RUN_PREINSTALL)
-        begin
-          Tempfile.open(Core::PREINSTALL) do |script_path|
-            @container.get_input_stream(
-              File.join(PatchBuilder::INSTALL_DIR,
-                        core.scripts_install[Core::PREINSTALL])
-            ) do |file|
-              IO.copy_stream(file, script_path)
-            end
-            script_path.close
-            Clame.exec_script(
-              info, script_path.path,
-              Core::PREINSTALL, basedir,
-              input_responses, checkins_out_vars
-            )
-          end
-        rescue SignalException, StandardError
-          set_status(ST_ERROR_PREINSTALL)
-          Clame.logger.error "Error in preinstall: #$!"
-          raise
-        end
-      end
-
-      Clame.puts_check('exist schema defined user and groups') do
-        begin
-          check_user_and_groups
-        rescue DefaultUserNotExists, DefaultGroupNotExists,
-          UserNotExists, GroupNotExists
-          raise
-        end
-      end
-
-
-      # Realizar el backup
-      Clame.logger.debug "Doing backup"
-      set_status(ST_RUN_BACKUP)
-      begin
-        do_backup(core, basedir, ignore_paths)
-      rescue SignalException, StandardError
-        set_status(ST_ERROR_BACKUP)
-        Clame.logger.error "Error doing backup: #$!"
-        raise
-      end
-
-      # Instalar los componentes del schema
-      Clame.logger.debug "Instalation schema"
-      set_status(ST_RUN_SCHEMA)
-      begin
-        Clame.puts_info "Installing schema components"
-        install_schema(core, basedir)
-      rescue
-        set_status(ST_ERROR_SCHEMA)
-        Clame.logger.error "Error in schema installation: #$!"
-        raise
-      end
-
-      # ejecución del postinstall
-      if core.scripts_install[Core::POSTINSTALL]
-        Clame.puts_info "Run postinstall"
-        Clame.logger.debug "Postinstall execution"
-        set_status(ST_RUN_POSTINSTALL)
-        begin
-          Tempfile.open(Core::POSTINSTALL) do |script_path|
-            write_to_stream(
-              File.join(PatchBuilder::INSTALL_DIR,
-                        core.scripts_install[Core::POSTINSTALL]),
-              script_path
-            )
-            script_path.close
-            Clame.exec_script(
-              info, script_path.path,
-              Core::POSTINSTALL, basedir,
-              input_responses, checkins_out_vars
-            )
-          end
-        rescue SignalException, StandardError
-          set_status(ST_ERROR_POSTINSTALL)
-          Clame.logger.error "Error in postinstall: #$!"
-          raise
-        end
-      end
-
-      # Registrar los archivos que instala este parche
-      Clame.logger.debug "Register installed files"
-      set_status(ST_REGISTER_INSTALLED_FILES)
-      begin
-        Clame.puts_task "Register installed files" do
-          Clame.database.register_installed_files(core, basedir)
-        end
-      rescue
-        set_status(ST_ERROR_REGISTER_INSTALLED_FILES)
-        Clame.logger.error "Error registering installed files: #$!"
-        raise
-      end
-
       # Registrar los scripts postinstall, preinstall, etc.
       Clame.logger.debug "Register install scripts"
       set_status(ST_REGISTER_INSTALL_SCRIPTS)
@@ -740,6 +641,105 @@ module Clame
         set_status(ST_ERROR_REGISTER_INFO_VARS)
         Clame.logger.error "Error registering info vars: #$!"
         raise
+      end
+
+      # Ejecución del preinstall
+      if core.scripts_install[Core::PREINSTALL]
+        Clame.puts_info "Run preinstall"
+        Clame.logger.debug "Preinstall execution"
+        set_status(ST_RUN_PREINSTALL)
+        begin
+          Tempfile.open(Core::PREINSTALL) do |script_path|
+            @container.get_input_stream(
+              File.join(PatchBuilder::INSTALL_DIR,
+                        core.scripts_install[Core::PREINSTALL])
+            ) do |file|
+              IO.copy_stream(file, script_path)
+            end
+            script_path.close
+            Clame.exec_script(
+              info, script_path.path,
+              Core::PREINSTALL, basedir,
+              input_responses, checkins_out_vars
+            )
+          end
+        rescue SignalException, StandardError
+          set_status(ST_ERROR_PREINSTALL)
+          Clame.logger.error "Error in preinstall: #$!"
+          raise
+        end
+      end
+
+      Clame.puts_check('exist schema defined user and groups') do
+        begin
+          check_user_and_groups
+        rescue DefaultUserNotExists, DefaultGroupNotExists,
+          UserNotExists, GroupNotExists
+          raise
+        end
+      end
+
+
+      # Realizar el backup
+      Clame.logger.debug "Doing backup"
+      set_status(ST_RUN_BACKUP)
+      begin
+        do_backup(core, basedir, ignore_paths)
+      rescue SignalException, StandardError
+        set_status(ST_ERROR_BACKUP)
+        Clame.logger.error "Error doing backup: #$!"
+        raise
+      end
+
+      # Instalar los componentes del schema
+      Clame.logger.debug "Instalation schema"
+      set_status(ST_RUN_SCHEMA)
+      begin
+        Clame.puts_info "Installing schema components"
+        install_schema(core, basedir)
+      rescue
+        set_status(ST_ERROR_SCHEMA)
+        Clame.logger.error "Error in schema installation: #$!"
+        raise
+      end
+
+      # Registrar los componentes del schema
+      Clame.logger.debug "Register installed files"
+      set_status(ST_REGISTER_INSTALLED_FILES)
+      begin
+        Clame.puts_task "Register installed files" do
+          Clame.database.register_installed_files(core, basedir)
+        end
+      rescue
+        set_status(ST_ERROR_REGISTER_INSTALLED_FILES)
+        Clame.logger.error "Error registering installed files: #$!"
+        raise
+      end
+
+      # ejecución del postinstall
+      if core.scripts_install[Core::POSTINSTALL]
+        Clame.puts_info "Run postinstall"
+        Clame.logger.debug "Postinstall execution"
+        set_status(ST_RUN_POSTINSTALL)
+        begin
+          Tempfile.open(Core::POSTINSTALL) do |script_path|
+            write_to_stream(
+              File.join(PatchBuilder::INSTALL_DIR,
+                        core.scripts_install[Core::POSTINSTALL]),
+              script_path
+            )
+            script_path.close
+            Clame.exec_script(
+              info, script_path.path,
+              Core::POSTINSTALL, basedir,
+              input_responses, checkins_out_vars
+            )
+          end
+        rescue SignalException, StandardError
+          set_status(ST_ERROR_POSTINSTALL)
+          Clame.logger.error "Error in postinstall: #$!"
+          raise
+        end
       end
 
 
