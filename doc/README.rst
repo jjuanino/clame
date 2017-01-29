@@ -52,11 +52,12 @@ patch name, description, etc:
     PREFIX="/opt/sales"
     VERSION="1.0"
 
-The ``schema`` file describes the files and directories making up your patch::
+The ``schema`` file describes the files and directories that make up your
+patch::
 
     # clame/sales/1.0/schema
     d 0755 postgres:postgres tables
-    d 0755 postgres:postgres procedures
+    d 0755 postgres:postgres functions
 
     f 0644 postgres:postgres tables/sales.sql
     f 0644 postgres:postgres functions/add_sale.sql
@@ -121,18 +122,7 @@ postinstall actions if the patch is removed later:
 To build the patch, place at the top level directory, and run the following::
 
     $ clame build clame/sales/1.0 sales-1.0.zip
-    * Check: syntax in (clame/sales/1.0) directory ... Success
-    => Building patch (sales), version (1.0)
-    * Check: relative paths ... Success
-    * Check: (/opt/sales) is an absolute path ... Success
-    - Task: Add (/usr/home/juanino/clame/clame_examples/tables/sales.sql) ... Done: 1 KiB
-    - Task: Add (/usr/home/juanino/clame/clame_examples/functions/add_sale.sql) ... Done: 1 KiB
-    - Task: Add (postinstall) ... Done: 1 KiB
-    - Task: Add (postremove) ... Done: 1 KiB
-    - Task: Add (corefile) ... Done: 2 KiB
-    - Task: Add (contents) ... Done: 1 KiB
-    => Patch (sales), version (1.0) successfully added to (sales-1.0.zip)
-
+    ........
     => Created (sales-1.0.zip, 1 KiB)
 
 Now, the ``sales-1.0.zip`` file contains all the necessary to install the patch
@@ -146,33 +136,11 @@ install it as ``root`` user::
             Patch name: (sales), Version: (1.0)
     Do you want to continue?(y/n) y
     => Installing (sales), version (1.0) contained in (sales-1.0.zip)
-    * Check: (/opt/sales) directory prefix exists ... Success
-    * Check: integrity of the zip container patch ... Success
-    * Check: there is room enough to install the patch ... Success: 4 Kib required
-    * Check: there is room enough to save the previous state ... Success: 0 KiB required, 10641648 KiB free in (/)
-    Do you want to continue?(y/n) y
-    * Check: patch is not already installed ... Success
-    * Check: version (1.0) is greather than the whole of installed of (sales) ... Success: no version installed of sales
-    * Check: requirements ... Success
-    * Check: conflicts ... Success
-    * Check: this patch will not cause conflict with other patch ... Success
-    => Setting installation prefix to (/opt/sales)
-    * Check: exist schema defined user and groups ... Success
-    => Register info backup in clame database
-    => Installing schema components
-    - Task: Create directory: 755 postgres:postgres (/opt/sales/tables) ... Done
-    - Task: Create directory: 755 postgres:postgres (/opt/sales/procedures) ... Done
-    - Task: Create regular file: 644 postgres:postgres (/opt/sales/tables/sales.sql) ... Done
-    - Task: Create regular file: 644 postgres:postgres (/opt/sales/functions/add_sale.sql) ... Done
+    ........
     => Run postinstall
     CREATE TABLE
     CREATE FUNCTION
-    - Task: Register installed files ... Done
-    - Task: Register patch scripts ... Done
-    - Task: Register patch requisites ... Done
-    - Task: Register patch conflicts ... Done
-    - Task: Register input variables ... Done
-    - Task: Register info variables ... Done
+
     => (sales) patch, (1.0) version has been successfully installed
 
 So far, so good: your customer is now featuring of your deployment.
@@ -184,7 +152,7 @@ table. Your table has not such column, but you cannot simply use the same patch
 as before with a ``sale_date`` column and send it to your customer with a
 diferent version (1.1), as the ``CREATE TABLE`` sentence would fail (``SALES``
 table already exists). And you cannot run ``DROP TABLE`` before, as the
-``SALES`` rows previously registered will gone out.
+``SALES`` rows previously registered would gone out.
 
 The right approach is add a ``sales_date`` column to the ``SALES`` table and
 write a new function to take into account the new column. Therefore, you create
@@ -280,31 +248,10 @@ version::
             Patch name: (sales), Version: (1.1)
     Do you want to continue?(y/n) y
     => Installing (sales), version (1.1) contained in (sales-1.1.zip)
-    * Check: (/opt/sales) directory prefix exists ... Success
-    * Check: integrity of the zip container patch ... Success
-    * Check: there is room enough to install the patch ... Success: 1 Kib required
-    * Check: there is room enough to save the previous state ... Success: 5 KiB required, 10623428 KiB free in (/)
-    Do you want to continue?(y/n) y
-    * Check: patch is not already installed ... Success
-    * Check: version (1.1) is greather than the whole of installed of (sales) ... Success: (1.0) max version installed
-    * Check: requirements ... Success
-    * Check: conflicts ... Success
-    * Check: this patch will not cause conflict with other patch ... Success
-    => Setting installation prefix to (/opt/sales)
-    * Check: exist schema defined user and groups ... Success
-    - Task: Back up (/opt/sales/functions/add_sale.sql) ... Done. 5 KiB
-    => Register info backup in clame database
-    => Installing schema components
-    - Task: Create regular file: 644 postgres:postgres (/opt/sales/functions/add_sale.sql) ... Done
+    ........
     => Run postinstall
     ALTER TABLE
     CREATE FUNCTION
-    - Task: Register installed files ... Done
-    - Task: Register patch scripts ... Done
-    - Task: Register patch requisites ... Done
-    - Task: Register patch conflicts ... Done
-    - Task: Register input variables ... Done
-    - Task: Register info variables ... Done
     => (sales) patch, (1.1) version has been successfully installed
 
 If something goes wrong, your customer will uninstall your 1.1 version, and run
@@ -313,26 +260,18 @@ their bussiness with the 1.0 version. Notice that clame will revert the
 
     # clame remove sales 1.1
     => Unstalling (sales), version (1.1)
-    * Check: Version (1.1) is the highest of the patch (sales) ... Success
-    * Check: The unistallation will not break any dependency ... Success
-    * Check: Effective installation uid is the same as current one ... Success
-    - Task: Get input variables ... Done
-    - Task: Get checkinstall variables ... Done
-    - Task: Get info variables ... Done
-    => Restore backup
-    - Task: Restore regular file (/opt/sales/functions/add_sale.sql) ... Done
+    ........
     => Run postremove
     CREATE FUNCTION
     ALTER TABLE
-    - Task: Unregister patch (sales), version (1.1) from database ... Done
     => (sales) patch, (1.1) version has been successfully uninstalled
 
-Now it will be clearer why clame is a patch manager: in 1.1 version you *patch*
-the 1.0 version to accomplish your costumer requirements. This is in sharp
-contrast with other packaging tools, where each version always install the full
-software, with no dependency on previous versions.  In clame, you need to
-install the right sequence of versions (patches) to achieve the same.
-
+Now it is clearer why clame is a patch manager: in 1.1 version you *patch* the
+1.0 version to accomplish your costumer requirements. This is in sharp contrast
+with other package management tools, where each version always install the full
+software, with no dependency on previous versions. Clame goal is not to provide
+the full software piece at one time, but to adapt smoothly a live system to new
+sotfware versions.
 
 
 Installing clame
@@ -363,7 +302,6 @@ Build and install clame
 Download the latest release from Github, place in the top level directory and
 run as root::
 
-    # gem uninstall -x clame
     # rake build install
 
 Running the tests

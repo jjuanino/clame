@@ -38,9 +38,9 @@ log_severity (``Logger::INFO``)
 database_path (``$HOME/.clame/clame.db``)
     SQLite database file where clame keeps track of installed patches, mainly.
 backup_dir_install (``$HOME/.clame/save``)
-    Directory where clame saves the files it overwrites in each patch version.
-    They are neccesary in order to be able to restore them when clame uninstall
-    a specific version.
+    Directory where clame saves the files it overwrites in each patch version
+    installation.  They are neccesary in order to be able to restore them when
+    clame uninstall a specific version.
 
 .. Parámetros internos. No mostrar
     max_retries_db (10)
@@ -93,8 +93,9 @@ which could be set to a specific filesystem with room enough.
 
 SQLite internal database
 ========================
-The first time clame is run, the SQLite internal database will be created and
-deployed if does not exist. If it exists previously, clame will make some
+The first time clame runs, a SQLite internal database will be created and
+deployed if did not exist. If it existed previously, clame will make some
 checks to ensure that it is a valid database. This database is critical to
-clame; take a look at :ref:`clame-database` to get the full details.
+clame functioning; take a look at :ref:`clame-database` to get the full
+details.
 

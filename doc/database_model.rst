@@ -6,15 +6,13 @@ SQLite database model
 *********************
 
 This chapter describes in detail the database model that supports clame. It is
-a just SQLlite database with enabled integrity reference.
-
-.. TODO: poner enlace a diagrama.
+just a SQLlite database with enabled integrity reference.
 
 Static tables
 =============
 
-Static tables contain rows which are initially loaded and are no subject to
-change, except on new releases.
+Static tables contain rows which are loaded when database is created, and are
+no subject to change, except on new releases.
 
 model_version
 -------------
@@ -165,7 +163,7 @@ patches
     );
 
 
-The ``patches`` table keep a row per patch name. Wether you have one o three
+The ``patches`` table keeps a row per patch name. Wether you have one o three
 *foo* patch versions, this table only keeps a row.
 
 
@@ -235,7 +233,7 @@ info_vars
         ON info_vars(patch_version_id);
 
 
-The ``info_vars`` table keep the list of info variables per patch. Clame
+The ``info_vars`` table keeps the list of info variables per patch. Clame
 retrieve the pairs varname and varvalue from this table when needed.
 
 requisites
@@ -263,8 +261,8 @@ requisites
     CREATE INDEX requisites_req_patch_id_idx
         ON requisites(req_patch_id);
 
-The ``requisites`` table keeps the patches required by one, by inspecting the
-``depend`` file.
+The ``requisites`` table keeps the patches required per patch, by inspecting
+the ``depend`` file.
 
 The ``interval`` column is a marshaled ruby compressed object that contains the
 full information about a specific dependency. Therefore, ``req_patch_id``
@@ -299,8 +297,8 @@ conflicts
         ON conflicts(conf_patch_id);
 
 
-Pretty similar to `requisites`_. It keeps the patches which conflicts with one,
-by inspecting the ``depend`` file.
+Pretty similar to `requisites`_. It keeps the patches which conflicts with a
+specific one, by inspecting the ``depend`` file.
 
 As before, hhe ``interval`` column is a marshaled ruby compressed object that
 contains the full information about a specific conflict. Therefore,
@@ -375,15 +373,14 @@ digests
         zcontent        BLOB                                    NULL
     );
 
-The ``digests`` table is a very special table that keeps a list of the whole
+The ``digests`` is a special table that keeps a list of the whole
 regular files installed by clame. Each regular file is identified by a SHA256
 hash, and it is what is saved in ``digest`` column. That list includes the
 scripts required to install or uninstall a specific patch (``postinstall``,
 ``postremove`` and so on), but in this case, the compressed script content is
 saved in ``zcontent`` column. Therefore, the ``zcontent`` is only filled when
-the file references to the script of a patch, not when references to a file
-specified in schema (that is the reason why ``zcontent`` column is not
-mandatory).
+the file references to a patch script, not when references to a file specified
+in schema (that is the reason why ``zcontent`` column is not mandatory).
 
 
 

@@ -16,13 +16,14 @@ In order to uninstall a patch, you have to specify patch name and version:
 
 Initial checks
 ==============
-Previous to the unstallation, clame checks some things to ensure that nothing will break.
+Previous to the unistallation, clame checks some things to ensure that nothing
+will break.
 
 * Version to uninstall is the highest
 
-  In other words: clame will not allow you to uninstall a patch if it has not
-  the highest version. For example, if *foo 1.2* and *foo 1.3* are both
-  installed, you cannot uninstall *foo 1.2*. This check can be ignored.
+  Clame will not allow to uninstall a patch if it has not the highest version.
+  For example, if *foo 1.2* and *foo 1.3* are both installed, you cannot
+  uninstall *foo 1.2*. This check can be ignored.
 
 * Uninstallation breaks any dependency
 
@@ -35,8 +36,8 @@ Previous to the unstallation, clame checks some things to ensure that nothing wi
 
   If you are trying to uninstall a patch with a non root user, clame will
   ensure that this user is the same who installed the patch. This means that,
-  if you install a patch with ``foo`` user, clame will warn you if you try to
-  uninstall as ``bar`` user. This check can be ignored.
+  if you install a patch with ``foo`` user, clame will warn you if you later
+  try to uninstall as ``bar`` user. This check can be ignored.
 
 The uninstallation stage
 =========================
@@ -51,8 +52,12 @@ postremove scripts.
 
 Preremove
 ^^^^^^^^^
-Clame runs the ``preremove`` script, if provided. If the exit code returned is
+Clame runs the ``preremove`` script, if provided. If the returned exit code is
 non zero, clame aborts the uninstallation. 
+
+.. note::
+    In preremove and postremove stages, clame will set standard input to
+    ``/dev/null``. Standard output and error remains unchanged.
 
 Restore the backup
 ^^^^^^^^^^^^^^^^^^
@@ -62,15 +67,12 @@ you can ignore these errors by using the ``-a`` command line flag.
 
 Postremove
 ^^^^^^^^^^
-Clame runs the postremove script. If the exit code returned is non zero, clame
-aborts. You can retry the uninstallation later.
+Clame runs the postremove script, if provided. If the returned exit code is non
+zero, clame aborts. You can retry the uninstallation later.
 
-.. note::
-    In preremove and postremove stages, clame will set standard input to
-    ``/dev/null``. Standard output and error remains unchanged.
 
 Unregister patch of internal database
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Clame unregisters the patch of its internal database. You cannot longer to make
-any reference to this patch, as clame will know nothing about it.  After that,
-clame returns the control to command line.
+Clame unregisters the patch from its internal database. You cannot longer to
+make any reference to this patch, as clame will know nothing about it.  After
+that, clame returns the control to command line.

@@ -28,6 +28,8 @@ General clame usage
 
 
 
+.. _clame-build:
+
 clame build
 ===========
 
@@ -122,7 +124,7 @@ With ``--ignore-conflicts|-c`` flag, clame does not check the conflicts pointed
 out in depend file.
 
 With ``--ignore-higher-version|-v`` flag, clame does not check if the version
-to be installed is the highest of the already installed patch.
+to be installed is the highest of the already installed ones.
 
 With ``--ignore-inst-conflics|g`` flag, clame does not check if this patch
 installation may conflict with other already installed.
@@ -187,18 +189,13 @@ uninstallation break some dependency. For example, if *foo 1.0* depends on *bar
 
 
 The ``--ignore-higher-version|-v`` flag instructs to clame to do not check if
-there are higher version of ``patch, version`` installed. For example, if *foo
-1.0* and *foo 1.2* are both installed, ``clame remove foo 1.0`` will fails, but
-``clame remove -v foo 1.0`` will go ahead.
+there are higher version of ``patch`` installed. For example, if *foo 1.0* and
+*foo 1.2* are both installed, ``clame remove foo 1.0`` will fails, but ``clame
+remove -v foo 1.0`` will go ahead.
 
 The ``--abort-on-restore|-a`` flags instructs to clame to ignore any error
-happened in the restoration stage.
+happened at the restoration stage.
 
 The ``--ignore--unmatching-uids|-u`` flag instructs to clame to do not check if
-the user currently uninstalling the patch is the same user as installed it. See 
-:ref:`initial-checks-uninstall`.
-
-
-
-
-
+the user currently uninstalling the patch is the same user as previously
+installed it. See :ref:`initial-checks-uninstall`.

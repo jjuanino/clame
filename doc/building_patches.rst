@@ -3,7 +3,7 @@ Building patches
 
 Basic concepts
 ==============
-A clame patch is formed by *patch name* and a *version*. It is mandatory to
+A clame patch is formed by a *patch name* and a *version*. It is mandatory to
 indicate the patch name, but not the version. In such case, clame automatically
 assigns the version zero (0).
 
@@ -36,8 +36,8 @@ Info file
 ---------
 The ``info`` file is made up just of a list of ``VARNAME="VarValue"`` pairs.
 Left side is the variable name, and must be upper case with optional underscore
-or digits. Must to followed by equal character (``=``). Right side contains the
-variable value, inside double quotes. Here you can put anything except a doble
+or digits. Must be followed by equal character (``=``). Right side contains the
+variable value, inside double quotes. Here you can put anything except a double
 quote.
 
 Examples:
@@ -53,7 +53,7 @@ Examples:
 .. warning::
     Do not span a pair ``VARNAME="VarValue"`` by several lines, neither with a
     final escape (``\``).  It will raise a syntax error. If you need to put a
-    line end in a variable content, use ``\n`` character.
+    end line in the variable content, use the ``\n`` character.
 
 Some variables are mandatory and others optional. They are described in the
 following sections.
@@ -63,8 +63,8 @@ Mandatory variables
 ``PATCH_NAME``
     The patch name. Cannot contain spaces.
 ``DESCRIPTION``
-    Brief description of the goal of your patch. If line breaks are needed,
-    write them as ``\n``.
+    Brief description of the goal of the patch. If end lines are needed, use
+    again the ``\n`` character.
 
 Examples:
 
@@ -80,18 +80,18 @@ Optional variables
 ^^^^^^^^^^^^^^^^^^
 Optional variables are classified in two categories: free variables and special
 variables.  Free variables are custom variables, with no special meaning.
-Special variables are also optionals, but if they happen, it must to follow
+Special variables are also optional, but if they happen, it must to follow
 some rules and has a special meaning to the build process. The list of special
 variables is the following, along with the default value if not set.
 
 ``VERSION``: ``0``
     See `basic concepts <#basic-concepts>`__. Defaults to ``0`` (zero).
 ``INTERPRETER``: ``/bin/sh``
-    Is the absolute path to an executable that clame will uses to run the
+    Is the absolute path to an executable file that clame will use to run the
     following scripts: ``checkinstall``, ``preinstall``, ``postinstall``,
     ``preremove`` and ``postremove``.  By default is ``/bin/sh``, as usually
-    the above scripts will be coded as bourne shell scripts, but if the patch
-    needs to run perl code, ``INTERPRETER`` can be set to ``/usr/bin/perl``.
+    those scripts are coded as bourne shell ones, but if they were coded in
+    perl, ``INTERPRETER`` could be set to ``/usr/bin/perl``.
 ``INTERPRETER_FLAGS``: none
     Flags to the ``INTERPRETER`` executable. For example, if you have to run
     your above perl scripts with warnings enabled, ``INTERPRETER_FLAGS`` will
@@ -104,18 +104,18 @@ variables is the following, along with the default value if not set.
     ``PREFIX="/opt/foo"`` and clame has to install ``a/relative/path``, it will
     be finally installed in ``/opt/foo/a/relative/path``.
 ``REQUIRE_ACCEPT_LEGAL``: none
-    If set, it need to be set as ``YES``. Clame will request the user who
-    install the patch to accept the disclaimer. When not set, clame just show
+    If set, it needs to be set as ``YES``. Clame will request the user who
+    install the patch to accept the disclaimer. When not set, clame just shows
     the disclaimer by the terminal.
 ``BASECLAME``: none
     It is a relative or absolute path necessary to find some instalable files
-    in schema file. See the section `schema file`_ for details.
+    pointed out in schema file. See the section `schema file`_ for details.
     
     
 Info variables expansion
 ^^^^^^^^^^^^^^^^^^^^^^^^
 Info variables can reference to other previously defined info variables by
-enclosing it in ``$(VARNAME)``. Examples:
+enclosing then in ``$(VARNAME)``. Examples:
 
 .. code-block:: sh
 
@@ -123,42 +123,32 @@ enclosing it in ``$(VARNAME)``. Examples:
     DESCRIPTION = "$(PATCH_NAME) is a cool patch"
 
 
-Set info variables by command line
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Currently, it is possible to set info variables by two ways: by mean of the
-``info`` file, as it is explained in this section, or by mean of command line
-arguments, as it is explained in `TODO`. You can mixed the assignments by both
-modes, as long as they are not duplicated.
-
-.. TODO: completar 
-    Indicar que las variables VARNAME = "VARVALUE" del schema no se exportan a los scripts, tal y como
-    se hace con las info variables
-
-
-How ``info`` variables are used later in install phase
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. TODO
-
+Setting info variables by command line
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+It is possible to set info variables by two ways: by mean of the ``info`` file,
+as it is explained in this section, or by mean of command line arguments, as it
+is explained in :ref:`clame-build` (``--variable`` flag). You can use both
+methods to make the assignments, as long as they are not duplicated.
 
 
 
 Schema file 
 -----------
 Schema file (``schema``) is the core of clame build process. It is responsible
-to define the files and directories that will become installed later. This
-section describes the full syntax of this file.
+to define the files and directories that will become installed later at
+``install`` stage. This section describes the full syntax of this file.
 
 .. TODO: se pueden referenciar a infovars
 
 Ignored lines
-    Blank lines or lines begining with a pound (``#``) are ignored.
+    Blank lines or lines begining with a hash symbol (``#``) are ignored.
 
 Variable: ``VARNAME="VarValue"``
     As in ``info`` file, it is possible to assign variables in ``schema`` file
     to be referenced later. But be aware that the scope of these variables is
     exclusively limited to the ``schema`` file, conversely as info variables,
     which make up the environment of the ``postinstall``, ``postremove`` and so
-    on. Example::
+    on scripts. Example::
 
         # schema
         SHARE="share/$(PATCH_NAME)/$(PATCH_NAME)-$(VERSION)"
@@ -188,7 +178,8 @@ Default permissions for directories: ``dirdefaults perm user:group``
         dirdefaults 0755 root:wheel
 
 Directory: ``d [[perm] [user:group]] dirname``
-    Indicates a directory to install. Permissions and owners are optional. Example::
+    Indicates a directory to install. Permissions and owner are optional.
+    Example::
 
         d 0700 root:wheel share/syntax
         d nobody:nogroup share/syntax
@@ -208,26 +199,26 @@ Regular file: ``f[!] [[perm] [user:group]] destination[=origin]``
     file overwritten, and thus the destination, if existed previously,
     will be lost. Permissions and owner are optional, as before. Left side of
     equal sign is the installation destination, and rigth side is the path
-    where clame read the contents of such destination. Example::
+    where clame reads the contents of such destination. Example::
 
         f /opt/bin/foo.sh=bin/mycustomfoo.sh
 
-    Here, ``mycustomfoo.sh`` must exist at build time. Later, at install
+    Here, ``bin/mycustomfoo.sh`` must exist at build time. Later, at install
     stage, clame will install such file in the path ``/opt/bin/foo.sh``. 
 
-    ``BASECLAME`` is an important variable at schema scope. It can be defined
-    globally in configuration settings, at command line level, or at ``info``
-    file (it cannot be set as schema variable, however). It can be absolute or
-    relative. If *origin* file is an absolute path, it will be taken as is, but
-    if relative, clame will prefix it with ``CLAMEBASE``. For example, in the
-    previous example::
+    ``BASECLAME`` is an important variable scope limited to schema file. It can
+    be defined globally in configuration settings, at command line level, or at
+    ``info`` file (it cannot be set as schema variable, however). It can be
+    absolute or relative. If *origin* file is an absolute path, it will be
+    taken as is, but if relative, clame will prefix it with ``CLAMEBASE``. For
+    example, in the previous example::
 
         f /opt/bin/foo.sh=bin/mycustomfoo.sh
 
-    clame will assume that ``mycustomfoo.sh`` exits and is placed in
+    clame will assume that ``mycustomfoo.sh`` exists and is placed in
     ``$BASECLAME/bin/mycustomfoo.sh``. If ``CLAMEBASE`` is a relative path,
-    clame will assume that the begining is the directory where ``schema`` file
-    resides. To be clearer, assume your directory structure is the following::
+    clame assumes that the begining is the directory where ``schema`` file
+    resides. If your directory structure is the following::
 
         clame/
             foo/
@@ -237,25 +228,23 @@ Regular file: ``f[!] [[perm] [user:group]] destination[=origin]``
         bin/
             mycustomfoo.sh
 
-    Under this scenario, setting ``CLAMEBASE="../.."`` (two level higher) will
-    instruct clame to find the ``bin/mycustomfoo.sh`` in the
-    ``../../bin/mycustomfoo.sh``, assuming this path relative to
-    ``clame/foo/1.0`` directory.
+    setting ``CLAMEBASE="../.."`` (two level higher) instructs clame to find
+    the ``bin/mycustomfoo.sh`` file in the ``../../bin/mycustomfoo.sh``,
+    assuming this path is relative to ``clame/foo/1.0`` directory.
 
     .. note::
         By default, ``CLAMEBASE`` is set to ``../..`` if not set at any level
         (globally, command line or info file). It is hardcoded as a sane
         default when your directory structure looks like as above.
  
-    *Origin* is optional, but if not set, clame will assume that
+    *Origin* is optional, but if not set, clame assumes that
     ``origin=$BASECLAME/destination``. For example, the following line::
 
         f /opt/bin/foo.sh
 
-    will instruct to clame to find ``foo.sh`` under
-    ``$BASECLAME/opt/bin/foo.sh``. If you like this approach, and
-    ``BASECLAME="../.."``, your directory structure may look like to this
-    one::
+    instructs clame to find ``foo.sh`` under ``$BASECLAME/opt/bin/foo.sh``. If
+    you like this approach, and ``BASECLAME="../.."``, your directory structure
+    may look like to this one::
 
         clame/
             foo/
@@ -271,7 +260,7 @@ Regular file: ``f[!] [[perm] [user:group]] destination[=origin]``
         Indicates a pipe to install. 
 
     Symbolic link: ``s[!] destination=origin``
-        Indicates a symbolic link to install. Here the meaning or *origin* is not
+        Indicates a symbolic link to install. Here the meaning of *origin* is not
         the same as in regular files above: at install stage, clame will create
         an symbolic link in the path *destination* pointing out to *origin*.
         For example, with the following line::
@@ -280,19 +269,20 @@ Regular file: ``f[!] [[perm] [user:group]] destination[=origin]``
 
         clame will install ``/opt/bin/foolink.sh -> /opt/bin/foo.sh``.
 
-        If ``/opt/bin/foo.sh`` does not exist, ``foolink.sh`` will become a
+        If ``/opt/bin/foo.sh`` will not exist, ``foolink.sh`` will become a
         broken symbolic link, but clame will not raise any error.
 
     Hard link: ``h[!] destination=origin``
         Pretty similar to symbolic link, but this time with a *hard* link. If
         *origin* does not exist, clame will raise an error at install stage, as
-        the hard link could not be created.
+        the hard link will not can be created.
 
         
 
 Depend file
 -----------
-Depend file (``depend``) contains all about requisites and conflicts at install stage.
+Depend file (``depend``) contains all about requisites and conflicts at install
+stage.
 
 To indicate a requisite or conflict, the syntax is, respectively::
     
@@ -345,8 +335,8 @@ There are several types of input variables, described below.
 
 Normal input variables: ``N VAR_NAME Description``
     Same rules as info variables: ``VAR_NAME`` must be upper case with optional
-    digits or underscore. *Description* is free text; clame will show it at
-    install stage.
+    digits or underscore. *Description* is free text; clame will show it when
+    requesting such input variable.
 
 Password input variables: ``P VAR_NAME Description`` 
     They are equal as normal input variables, but clame will not echo the
@@ -357,8 +347,7 @@ Boolean input variables: ``B VAR_NAME Description``
     clame will set the variable to some non empty value in the environment at
     the install stage (``1`` to be precise, but it is irrelevant and may change
     in future releases).  When is set to ``n``, clame will *not* set the
-    variable, and it will be taken out of the environment. Is like if the
-    variable never exists.
+    variable, and it will be taken out of the environment.
 
 .. warning::
     You cannot define a info variable in input file. It will raise an error at
@@ -370,12 +359,12 @@ Example::
     # depend file
     N PGSQL_PATH Path base of PostgreSQL installation
     P FOO_PWD Passwd of foo user
-    B BAR_CONSIRED Wether bar functionaly must be considered
+    B BAR_CONSIRED If bar functionaly must be considered
 
 
 *Description* may contain references to info variables::
 
-    P FOO_PWD Please type the password of $(SCHEMA)
+    P FOO_PWD Please type the password of $(FOO_USER)
 
 
 
@@ -385,7 +374,7 @@ Legal file (``legal``) is a disclaimer about the software to be installed. Examp
 
     © This sotfware is tailored by foo corporation. All rigths reserved.
 
-Sometimes the disclaimer is so important that operator must be accept it
+Sometimes the disclaimer is so important that the operator must be accept it
 *before* install the patch. See ``REQUIRE_ACCEPT_LEGAL`` in
 :ref:`optional-variables`.
 
@@ -410,11 +399,11 @@ is not taken into account in the install or uninstall stage.
 
 .. important::
 
-   The scripts checkinstall, preinstall and so on are **never** considered as
-   executable files. They are just the last argument of the ``INTERPRETER``
-   configuration setting (usually ``/bin/sh``). Really, clame will run
-   the ``/bin/sh`` executable (or whatever), with somes flags and arguments.
-   Therefore, if you write a postinstall file as follows:
+   The scripts ``checkinstall``, ``preinstall`` and so on are **never**
+   considered as executable files. They are just the last argument of the
+   ``INTERPRETER`` configuration setting (usually ``/bin/sh``). Indeed, clame
+   runs the ``/bin/sh`` executable (or whatever), with somes flags and
+   arguments. Therefore, if you write a postinstall file as follows:
 
    .. code-block:: sh
 
@@ -422,16 +411,17 @@ is not taken into account in the install or uninstall stage.
        ... some bash specific code ...
 
 
-   the first line is like a commented line, and if you ``INTERPRETER``
-   configuration setting is not ``/bin/bash``, your script will not run as bash
-   script. This misunderstanding can lead to problems very hard to diagnose. 
+   the first line is like a commented line, and if the ``INTERPRETER``
+   configuration setting is not ``/bin/bash``, your script will not be run as
+   bash script. This misunderstanding can lead to problems very hard to
+   diagnose. 
 
 
 Checkinstall
 ^^^^^^^^^^^^
-The checkinstall code is run by clame at early stage, if provided. Usually,
-it checks if patch is allowed to be installed by inspecting the returning
-exit code. If is not zero, the install stage aborts enterely.
+The checkinstall code is run by clame at early stage, if provided. Usually, it
+checks if patch is allowed to be installed by inspecting the returning exit
+code. If is non zero, the install stage aborts enterely.
 
 The interesting part of checkinstall is that it allows to set environment
 variables that can be consumed by the remaining scripts (at uninstall stage
@@ -490,20 +480,20 @@ calls:
     $register_vars PG_VERSION $PG_VERSION
     $register_vars PG_PLATFORM $PG_PLATFORM
 
-Behing the scenes, ``$register_vars`` saves in the clame internal database
-the variable names and values, and so they can be got later.
+Behing the scenes, ``$register_vars`` saves in the internal database the
+variable names and values, and so they can be fetched later.
 
 Preinstall
 ^^^^^^^^^^
 After successful checkinstall execution, clame will run ``preinstall`` code, if
-provided. Its goal is perform the actions needed to install sucessfully the
-overall of schema files and directories. For example, assume your ``schema``
-file installs a directory with an inexistent user owner, let say::
+provided. Its goal is to perform the pre-actions needed to install sucessfully
+the overall of schema files and directories. For example, assume your
+``schema`` file installs a directory with an inexistent user owner, let say::
     
     d 0755 foouser:foogroup /opt/foodir
 
-Before to deploy such directory, it is needed to create the foouser and
-foogroup in ``preinstall``:
+Before to deploy such directory, it is needed to create the ``foouser`` user
+and ``foogroup`` group in ``preinstall``:
 
 .. code-block:: shell
 
@@ -516,12 +506,13 @@ foogroup in ``preinstall``:
     groupadd foogroup
 
 If this scripts returns a non zero code, clame will abort the install stage.
-Otherwise, it will desploy the schema files and directories.
+Otherwise, it will desploy the schema files and directories pointed out by
+``schema``.
 
 
 Postinstall
 ^^^^^^^^^^^
-After clame deploys the schema files and directories sucessfully, it will run
+After clame deploys the schema files and directories sucessfully, it runs
 ``postinstall`` code, where you perform specific actions relative to the
 installed code.
 
@@ -531,7 +522,7 @@ schema::
     # schema
     f 0644 postgres:postgres functions/add_sale.sql
 
-you will write the proper code to compile the function in ``postinstall``::
+you write the proper code to compile the function in ``postinstall``::
 
     # postinstall
     su postgres -c "psql" << EOF
@@ -539,14 +530,11 @@ you will write the proper code to compile the function in ``postinstall``::
     EOF
 
 
-.. TODO: ¿¿exit code efecto del postinstall??
-
-
 Preremove
 ^^^^^^^^^
-If provided, clame run ``preremove`` code in the early stage of uninstall
-action. Is intended to perform checks to decide if is allowed to remove the
-software.
+If provided, clame runs ``preremove`` code in the early stage of uninstall
+action. It is intended to perform checks to decide if it is allowed to remove
+the software.
 
 After ``preremove`` sucessful execution, clame will try revert the actions
 deployed by the schema, restoring previous files and directories.
@@ -554,12 +542,12 @@ deployed by the schema, restoring previous files and directories.
 
 Postremove
 ^^^^^^^^^^ 
-If provided, clame run ``postremove`` code after revert the actions deployed by
-the schema. It is intended to run code that consumes the restored files or
-directories. For example, following the previuos ``postinstall`` example, assume
-you are uninstalling the patch later; you need again compile the previous
-version, to leave the database as close as it was before. Therefore, you need
-again the same code in ``postremove`` file::
+If provided, clame runs ``postremove`` code after revert the actions deployed
+by the schema. It is intended to run code that consumes the restored files or
+directories. For example, following the previuos ``postinstall`` example,
+assume you are uninstalling the patch later; you need again compile the
+previous version, to leave the database as close as it was before. Therefore,
+you need again the same code in ``postremove`` file::
 
     # postremove
     su postgres -c "psql" << EOF
@@ -567,7 +555,7 @@ again the same code in ``postremove`` file::
     EOF
 
 The key is that the ``add_sale.sql`` content at this moment (in postremove
-phase) is not the same as in postinstall phase, as it has been properly
+phase) is not the same as in postinstall phase, as now it has been properly
 restored.
 
 
@@ -584,8 +572,9 @@ You build an alone patch or a bunch of them by running ``clame build``:
 
 You can even specify a pattern shell, as ``clame build clame/foo/* /tmp/foo.zip``.
 
-Directories ``dir_N`` contains the core files of each patch, and the output
-will go to a zip file. For example, if your structure directory is as follows::
+Directories ``dir_N`` contain the core files of each patch, and the output
+will be appended to a zip file. For example, if your directory structure is as
+follows::
 
     clame/
         foo/
@@ -614,13 +603,13 @@ you could build all of your patches with an unique command:
 
     $ clame build clame/*/*/ /tmp/foo_bar.zip
 
-If you are interested only in a specific, patch, run:
+If you are interested in a specific patch, run:
 
 .. code-block:: console
 
     $ clame build clame/foo/1.1/ /tmp/foo_1.1.zip
 
-To build all the ``foo`` patches:
+To build all the ``foo`` patches, runs:
 
 .. code-block:: console
 
