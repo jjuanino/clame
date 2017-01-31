@@ -28,5 +28,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 module Clame
+  # Keep VERSION in sync with release /doc/conf.py variable
   VERSION = "0.0.1"
+  GIT_VERSION="$Format:%h$"
 end

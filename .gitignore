@@ -1,0 +1,7 @@
+/tags
+/runtime/
+*.swp
+/runtime/clame.db
+/pkg
+/doc/_*
+/datamodel/powerarchitect/clame.architect~

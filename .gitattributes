@@ -1,0 +1,2 @@
+/lib/clame/version.rb export-subst
+/datamodel/powerarchitect/clame.architect binary merge=ours
